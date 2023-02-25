@@ -12,6 +12,8 @@ public class Guide {
 
     private String name;
 
+    private boolean available = true;
+
     public String getName() {
         return name;
     }
@@ -24,14 +26,24 @@ public class Guide {
         this.name = name;
     }
 
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
     public Guide() {
     }
+
 
     @Override
     public String toString() {
         return "Guide{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", available=" + available +
                 '}';
     }
 }
