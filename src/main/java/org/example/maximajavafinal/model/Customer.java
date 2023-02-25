@@ -5,14 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class Guide {
+public class Customer {
 
     @Id @GeneratedValue
     private Long id;
 
     private String name;
 
-    private boolean available = true;
+    private String contacts;
 
     public Long getId() {
         return id;
@@ -26,28 +26,28 @@ public class Guide {
         this.name = name;
     }
 
-    public Guide(String name) {
+    public String getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(String contacts) {
+        this.contacts = contacts;
+    }
+
+    public Customer(String name, String contacts) {
         this.name = name;
+        this.contacts = contacts;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public Customer() {
     }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-
-    public Guide() {
-    }
-
 
     @Override
     public String toString() {
-        return "Guide{" +
+        return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", available=" + available +
+                ", contacts='" + contacts + '\'' +
                 '}';
     }
 }
