@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 public class Customer {
 
     @Id @GeneratedValue
-    private Long id;
+    private long id;
 
     private String name;
 

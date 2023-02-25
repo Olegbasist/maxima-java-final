@@ -5,29 +5,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class Guide {
+public class Ticket {
 
     @Id @GeneratedValue
     private long id;
 
-    private String name;
+    private int price;
 
     private boolean available = true;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public int getPrice() {
+        return price;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Guide(String name) {
-        this.name = name;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public boolean isAvailable() {
@@ -38,15 +34,18 @@ public class Guide {
         this.available = available;
     }
 
-    public Guide() {
+    public Ticket(int price) {
+        this.price = price;
     }
 
+    public Ticket() {
+    }
 
     @Override
     public String toString() {
-        return "Guide{" +
+        return "Ticket{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", price=" + price +
                 ", available=" + available +
                 '}';
     }
