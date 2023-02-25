@@ -1,7 +1,12 @@
-org\example\maximajavafinal\model\Ticket.class
+org\example\maximajavafinal\service\GuideService.class
 org\example\maximajavafinal\model\Customer.class
 org\example\maximajavafinal\MaximaJavaFinalApplication.class
 org\example\maximajavafinal\model\Guide.class
-org\example\maximajavafinal\model\Product.class
 org\example\maximajavafinal\ServletInitializer.class
 org\example\maximajavafinal\model\Excursion.class
+org\example\maximajavafinal\repository\GuideRepository.class
+org\example\maximajavafinal\repository\CustomerRepository.class
+org\example\maximajavafinal\model\Ticket.class
+org\example\maximajavafinal\repository\TicketRepository.class
+org\example\maximajavafinal\repository\ExcursionRepository.class
+org\example\maximajavafinal\model\Product.class
