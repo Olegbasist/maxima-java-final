@@ -7,5 +7,5 @@ import javax.xml.crypto.Data;
 
 @Entity
 public class Excursion extends Product{
-    
+
 }
