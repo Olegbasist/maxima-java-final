@@ -3,8 +3,10 @@ package org.example.maximajavafinal.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
 
 @Entity
+@Inheritance
 public class Product {
 
     @Id
@@ -47,5 +49,19 @@ public class Product {
     }
 
     public Product() {
+    }
+
+    public Product(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", available=" + available +
+                '}';
     }
 }
