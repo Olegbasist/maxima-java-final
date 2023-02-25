@@ -13,10 +13,17 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Hallo! I'm Command Runner.");
-		tests();
+		addTestEntities();
+		//tests();
+	}
+	private static void addTestEntities () {
+		System.out.println("Creating guides ... ");
+
+		System.out.println("Creating excursions and tickets ... ");
+
 	}
 	private static void tests(){
-		System.out.println("Let's start some tests!");
+		System.out.println("Let's do some tests!");
 	}
 
 
