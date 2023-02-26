@@ -28,20 +28,19 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		//tests();
 	}
 	private void addTestEntities () {
-		System.out.println("Creating guides ... ");
+		System.out.print("Creating guides ... ");
+		guideService.save(new Guide("Kyle Reese"));
+		guideService.save(new Guide("Peter Silberman"));
+		guideService.save(new Guide("John Connor"));
+		guideService.save(new Guide("Miles Dyson"));
+		guideService.save(new Guide("Sarah Connor"));
 
-		/*guideRepository.save(new Guide("Гид"));
-		guideRepository.findAll().forEach(guide -> System.out.println(guide));*/
-
-
-		guideService.saveGuide(new Guide("'Безымянный гид'"));
-		guideService.saveGuide(new Guide("Konstantin Stratowsky"));
-		guideService.saveGuide(new Guide("Anna Tener"));
-		guideService.saveGuide(new Guide("John Smith"));
-
-		System.out.println("Наши гиды:");
-		guideService.getAllGuides().forEach(guide -> System.out.println(guide));
-
+		System.out.println("");
+		System.out.println("////////////////////////////////////////////////");
+		System.out.println("Print guides list:");
+		guideService.findAll().forEach(guide -> System.out.println(guide));
+		System.out.println("////////////////////////////////////////////////");
+		System.out.println("");
 
 		System.out.println("Creating excursions and tickets ... ");
 		//excursionRepository.save(new Excursion());

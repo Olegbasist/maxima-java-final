@@ -12,12 +12,12 @@ public class GuideService {
     @Autowired
     private GuideRepository repository;
 
-    public List<Guide> getAllGuides () {
+    public List<Guide> findAll () {
         return repository.findAll();
     }
 
-    public void saveGuide (Guide newGuide) {
-        repository.save(newGuide);
-    }
+    public void save (Guide newGuide) {repository.save(newGuide);}
+
+    public void deleteById (Long id) {repository.deleteById(id);}
 
 }
