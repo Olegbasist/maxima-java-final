@@ -45,7 +45,7 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		List<Excursion> excursions = excursionService.findAll();
 		excursions.forEach(System.out::println);
 		guideService.findByID(1L).setExcursions(excursions);
-		
+
 	}
 
 
