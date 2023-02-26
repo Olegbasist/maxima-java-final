@@ -1,9 +1,6 @@
 package org.example.maximajavafinal.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
+import jakarta.persistence.*;
 
 @Entity
 @Inheritance
@@ -16,6 +13,9 @@ public class Product {
     private String name;
 
     private String description;
+
+    @ManyToOne (cascade = CascadeType.REFRESH)
+    private Guide guide;
 
     private boolean available = true;
 

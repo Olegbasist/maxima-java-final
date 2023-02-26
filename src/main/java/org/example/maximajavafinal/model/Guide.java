@@ -1,8 +1,8 @@
 package org.example.maximajavafinal.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Guide {
@@ -11,6 +11,10 @@ public class Guide {
     private long id;
 
     private String name;
+
+
+    @OneToMany (cascade = CascadeType.REFRESH)
+    private List<Excursion> excursions;
 
     private boolean available = true;
 
@@ -24,6 +28,14 @@ public class Guide {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Excursion> getExcursions() {
+        return excursions;
+    }
+
+    public void setExcursions(List<Excursion> excursions) {
+        this.excursions = excursions;
     }
 
     public Guide(String name) {
@@ -40,7 +52,6 @@ public class Guide {
 
     public Guide() {
     }
-
 
     @Override
     public String toString() {

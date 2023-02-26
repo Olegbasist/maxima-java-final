@@ -4,6 +4,8 @@ import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.repository.ExcursionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
@@ -12,10 +14,12 @@ public class ExcursionService {
 
     public void save (Excursion excursion) {repository.save(excursion);}
 
+    @Transactional(readOnly = true)
     public List<Excursion> findAll () {
         return repository.findAll();
     }
 
+    @Transactional (readOnly = true)
     public Excursion findById (Long id) {return repository.findById(id).get();}
 
 
