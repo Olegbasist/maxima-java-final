@@ -10,6 +10,8 @@ import org.example.maximajavafinal.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Random;
+
 
 @Component
 public class TestEntitiesMaker {
@@ -57,7 +59,10 @@ public class TestEntitiesMaker {
     public void makeTestExcursions () {
         System.out.println("Creating excursions and tickets ... ");
         Excursion excursion = new Excursion();
-        excursion.setName("Tour to the new unknown future");
+        int year = new Random().nextInt(1997,2048);
+
+        String name = String.format("Tour to the incredible year of %s", year);
+        excursion.setName(name);
         excursion.setDescription("Do you know what is the best thing about future? Well, you never feel obliged to take the same route when you are in time loop. At least, that’s what I did when I had a chance to change everything in several years past from now.");
         excursionService.save(excursion);
 

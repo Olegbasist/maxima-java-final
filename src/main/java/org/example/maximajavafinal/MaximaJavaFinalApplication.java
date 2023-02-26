@@ -1,11 +1,5 @@
 package org.example.maximajavafinal;
 
-import org.example.maximajavafinal.model.Excursion;
-import org.example.maximajavafinal.model.Guide;
-import org.example.maximajavafinal.repository.ExcursionRepository;
-import org.example.maximajavafinal.repository.GuideRepository;
-import org.example.maximajavafinal.service.ExcursionService;
-import org.example.maximajavafinal.service.GuideService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,11 +19,6 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		System.out.println("////////////////////////////////////////////////");
 		System.out.println("Hallo! I'm Command Runner.");
 		System.out.println("");
-
-		//tests();
-	}
-	private void tests(){
-		System.out.println("Let's do some tests!");
 	}
 
 
