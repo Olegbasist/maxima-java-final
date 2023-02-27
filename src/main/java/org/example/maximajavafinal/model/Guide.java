@@ -13,7 +13,7 @@ public class Guide {
     private String name;
 
 
-    @OneToMany (cascade = CascadeType.REFRESH, mappedBy = "guide")
+    @OneToMany (cascade = CascadeType.MERGE, mappedBy = "guide", fetch = FetchType.EAGER)
     private List<Excursion> excursions;
 
     private boolean available = true;

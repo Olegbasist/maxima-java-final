@@ -18,7 +18,7 @@ public class Excursion {
 
     private Date date;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne
     private Guide guide;
 
     private boolean available = true;
