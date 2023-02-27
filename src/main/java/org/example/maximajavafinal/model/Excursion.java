@@ -1,6 +1,9 @@
 package org.example.maximajavafinal.model;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
+import org.example.maximajavafinal.service.ExcursionService;
+import org.example.maximajavafinal.service.TicketService;
 
 import java.util.Date;
 import java.util.List;
@@ -19,10 +22,11 @@ public class Excursion {
 
     private Date date;
 
-    @ManyToOne
+
+    @ManyToOne (cascade = CascadeType.MERGE)
     private Guide guide;
 
-    @OneToMany (cascade = CascadeType.MERGE, mappedBy = "excursion", fetch = FetchType.EAGER)
+    @OneToMany (cascade = CascadeType.MERGE, mappedBy = "excursion", fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Ticket> tickets;
 
     private boolean available = true;
@@ -86,6 +90,7 @@ public class Excursion {
         this.name = name;
         this.date = date;
     }
+
 
     @Override
     public String toString() {

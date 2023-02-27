@@ -1,8 +1,10 @@
 package org.example.maximajavafinal;
 
+import jakarta.annotation.PostConstruct;
 import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.model.Product;
+import org.example.maximajavafinal.model.Ticket;
 import org.example.maximajavafinal.service.CustomerService;
 import org.example.maximajavafinal.service.ExcursionService;
 import org.example.maximajavafinal.service.GuideService;
@@ -52,7 +54,17 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 			System.out.println(guide.getExcursions());
 			i++;
 		}
+			int defaultTicketsQuanity = 30;
+			while (defaultTicketsQuanity>0) {
+				ticketService.save(new Ticket(0, excursionService.findById(2L)));
+				defaultTicketsQuanity--;
+			}
 
+		ticketService.save(new Ticket(100, excursionService.findById(1L)));
+		System.out.println("");
+		System.out.println("All available tickets: ");
+		System.out.println(ticketService.findAll().size());
+		ticketService.findAll().forEach(System.out::println);
 		//List<Excursion> excursions = excursionService.findAll();
 		//excursions.forEach(System.out::println);
 

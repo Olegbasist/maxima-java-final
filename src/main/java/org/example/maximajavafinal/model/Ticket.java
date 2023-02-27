@@ -10,7 +10,7 @@ public class Ticket {
 
     private int price;
 
-    @ManyToOne (cascade = CascadeType.REMOVE)
+    @ManyToOne (cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Excursion excursion;
 
     private boolean available = true;
@@ -46,12 +46,16 @@ public class Ticket {
     public Ticket() {
     }
 
+    public Ticket(int price, Excursion excursion) {
+        this.price = price;
+        this.excursion = excursion;
+    }
+
     @Override
     public String toString() {
         return "Ticket{" +
                 "id=" + id +
                 ", price=" + price +
-                ", available=" + available +
                 '}';
     }
 }
