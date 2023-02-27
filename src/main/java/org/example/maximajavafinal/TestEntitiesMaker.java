@@ -10,6 +10,7 @@ import org.example.maximajavafinal.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.Random;
 
 
@@ -34,9 +35,7 @@ public class TestEntitiesMaker {
     @PostConstruct
     private void autoMakTestEntities () {
         makeTestGuides();
-        makeTestExcursions();
-        makeTestExcursions();
-        makeTestExcursions();
+        makeTestExcursions(5);
     }
     public void makeTestGuides () {
         System.out.println("");
@@ -56,23 +55,29 @@ public class TestEntitiesMaker {
 
 
     }
-    public void makeTestExcursions () {
+    public void makeTestExcursions (int count) {
+
         System.out.println("Creating excursions and tickets ... ");
-        Excursion excursion = new Excursion();
-        int year = new Random().nextInt(1997,2048);
+        int guidesCount = guideService.findAll().size()+1;
+        int i=0;
+        while (i<count) {
+            Excursion excursion = new Excursion();
+            int year = new Random().nextInt(1997, 2048);
 
-        String name = String.format("Tour to the incredible year of %s", year);
-        excursion.setName(name);
-        excursion.setDescription("Do you know what is the best thing about future? Well, you never feel obliged to take the same route when you are in time loop. At least, that’s what I did when I had a chance to change everything in several years past from now.");
-        excursion.setGuide(guideService.findByID(1L));
-        excursionService.save(excursion);
-
+            String name = String.format("Tour to the incredible year of %s", year);
+            excursion.setName(name);
+            excursion.setDescription("Do you know what is the best thing about future? Well, you never feel obliged to take the same route when you are in time loop. At least, that’s what I did when I had a chance to change everything in several years past from now.");
+            excursion.setGuide(guideService.findByID(new Random().nextLong(1,guidesCount)));
+            excursion.setDate(new Date());
+            excursionService.save(excursion);
+            i++;
+        }
         System.out.println("");
         System.out.println("////////////////////////////////////////////////");
-        System.out.println("");
+        /*System.out.println("");
         System.out.println("Print excursions list:");
         excursionService.findAll().forEach(e -> System.out.println(e));
         System.out.println("");
-        System.out.println("////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////////////");*/
     }
 }
