@@ -1,8 +1,6 @@
 package org.example.maximajavafinal.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Ticket {
@@ -11,6 +9,9 @@ public class Ticket {
     private long id;
 
     private int price;
+
+    @ManyToOne (cascade = CascadeType.REMOVE)
+    private Excursion excursion;
 
     private boolean available = true;
 
@@ -24,6 +25,10 @@ public class Ticket {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Excursion getExcursion() {
+        return excursion;
     }
 
     public boolean isAvailable() {

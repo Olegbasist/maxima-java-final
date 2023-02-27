@@ -3,6 +3,7 @@ package org.example.maximajavafinal.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -20,6 +21,9 @@ public class Excursion {
 
     @ManyToOne
     private Guide guide;
+
+    @OneToMany (cascade = CascadeType.MERGE, mappedBy = "excursion", fetch = FetchType.EAGER)
+    private List<Ticket> tickets;
 
     private boolean available = true;
 
@@ -59,6 +63,14 @@ public class Excursion {
         this.guide = guide;
     }
 
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
     public boolean isAvailable() {
         return available;
     }
@@ -83,6 +95,7 @@ public class Excursion {
                 ", description='" + description + '\'' +
                 ", date=" + date +
                 ", guide=" + guide +
+                ", tickets=" + tickets.size() +
                 '}';
     }
 }
