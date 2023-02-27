@@ -49,10 +49,10 @@ public class TestEntitiesMaker {
 
         System.out.println("");
         System.out.println("////////////////////////////////////////////////");
-        System.out.println("Print guides list:");
+        /*System.out.println("Print guides list:");
         guideService.findAll().forEach(guide -> System.out.println(guide));
         System.out.println("////////////////////////////////////////////////");
-        System.out.println("");
+        System.out.println("");*/
 
 
     }
@@ -64,6 +64,7 @@ public class TestEntitiesMaker {
         String name = String.format("Tour to the incredible year of %s", year);
         excursion.setName(name);
         excursion.setDescription("Do you know what is the best thing about future? Well, you never feel obliged to take the same route when you are in time loop. At least, that’s what I did when I had a chance to change everything in several years past from now.");
+        excursion.setGuide(guideService.findByID(1L));
         excursionService.save(excursion);
 
         System.out.println("");

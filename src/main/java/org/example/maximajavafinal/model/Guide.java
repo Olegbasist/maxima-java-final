@@ -58,7 +58,6 @@ public class Guide {
         return "Guide{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", available=" + available +
                 '}';
     }
 }

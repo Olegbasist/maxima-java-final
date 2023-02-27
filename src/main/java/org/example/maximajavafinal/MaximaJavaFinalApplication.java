@@ -1,6 +1,7 @@
 package org.example.maximajavafinal;
 
 import org.example.maximajavafinal.model.Excursion;
+import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.model.Product;
 import org.example.maximajavafinal.service.CustomerService;
 import org.example.maximajavafinal.service.ExcursionService;
@@ -40,11 +41,13 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		System.out.println("////////////////////////////////////////////////");
 		System.out.println("Hallo! I'm Command Runner.");
 		System.out.println("");
-		//guideService.findAll().forEach(System.out::println);
-		System.out.println(guideService.findByID(1L));
+		guideService.findAll().forEach(System.out::println);
+		//System.out.println(guideService.findByID(1L));
 		List<Excursion> excursions = excursionService.findAll();
 		excursions.forEach(System.out::println);
-		guideService.findByID(1L).setExcursions(excursions);
+		//guideService.findByID(1L).setExcursions(excursions);
+		//guideService.findAll().forEach(System.out::println);
+
 
 	}
 

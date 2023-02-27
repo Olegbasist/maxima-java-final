@@ -83,7 +83,6 @@ public class Excursion {
                 ", description='" + description + '\'' +
                 ", date=" + date +
                 ", guide=" + guide +
-                ", available=" + available +
                 '}';
     }
 }
