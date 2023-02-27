@@ -42,9 +42,11 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		System.out.println("Hallo! I'm Command Runner.");
 		System.out.println("");
 		guideService.findAll().forEach(System.out::println);
-		//System.out.println(guideService.findByID(1L));
-		List<Excursion> excursions = excursionService.findAll();
-		excursions.forEach(System.out::println);
+		System.out.println(guideService.findByID(1L).getExcursions());
+
+		//List<Excursion> excursions = excursionService.findAll();
+		//excursions.forEach(System.out::println);
+
 		//guideService.findByID(1L).setExcursions(excursions);
 		//guideService.findAll().forEach(System.out::println);
 
