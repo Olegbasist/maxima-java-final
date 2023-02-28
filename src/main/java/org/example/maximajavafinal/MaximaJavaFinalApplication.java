@@ -54,23 +54,13 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 			System.out.println(guide.getExcursions());
 			i++;
 		}
-			int defaultTicketsQuanity = 30;
-			while (defaultTicketsQuanity>0) {
-				ticketService.save(new Ticket(0, excursionService.findById(2L)));
-				defaultTicketsQuanity--;
-			}
 
-		ticketService.save(new Ticket(100, excursionService.findById(1L)));
 		System.out.println("");
 		System.out.println("All available tickets: ");
 		System.out.println(ticketService.findAll().size());
-		ticketService.findAll().forEach(System.out::println);
-		//List<Excursion> excursions = excursionService.findAll();
-		//excursions.forEach(System.out::println);
 
-		//guideService.findByID(1L).setExcursions(excursions);
-		//guideService.findAll().forEach(System.out::println);
 
+		ticketService.findAll().forEach(ticket -> System.out.println());
 
 	}
 

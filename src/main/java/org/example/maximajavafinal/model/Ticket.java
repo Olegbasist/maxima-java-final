@@ -56,6 +56,7 @@ public class Ticket {
         return "Ticket{" +
                 "id=" + id +
                 ", price=" + price +
+                //", excursion=" + excursion.getId() + excursion.getName() +
                 '}';
     }
 }

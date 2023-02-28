@@ -91,7 +91,6 @@ public class Excursion {
         this.date = date;
     }
 
-
     @Override
     public String toString() {
         return "Excursion{" +
