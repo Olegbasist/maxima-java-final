@@ -96,7 +96,7 @@ public class Excursion {
         return "Excursion{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                //", description='" + description + '\'' +
                 ", date=" + date +
                 ", guide=" + guide +
                 ", tickets=" + tickets.size() +
