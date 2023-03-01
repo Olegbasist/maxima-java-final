@@ -1,10 +1,7 @@
 package org.example.maximajavafinal;
 
 import jakarta.annotation.PostConstruct;
-import org.example.maximajavafinal.model.Excursion;
-import org.example.maximajavafinal.model.Guide;
-import org.example.maximajavafinal.model.Product;
-import org.example.maximajavafinal.model.Ticket;
+import org.example.maximajavafinal.model.*;
 import org.example.maximajavafinal.service.CustomerService;
 import org.example.maximajavafinal.service.ExcursionService;
 import org.example.maximajavafinal.service.GuideService;
@@ -62,6 +59,13 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		System.out.println("");
 		System.out.println("All available tickets: ");
 		System.out.println(ticketService.findAll().size());
+
+		System.out.println("");
+		//new TestEntitiesMaker().makeTestCustomers(5);
+		customerService.save(new Customer("Posetitel","custom@mail.com"));
+		customerService.save(new Customer("Janny","Call me later +49 221 112 22 11"));
+		System.out.println("Our dear customers: ");
+		customerService.findAll().forEach(System.out::println);
 
 	}
 

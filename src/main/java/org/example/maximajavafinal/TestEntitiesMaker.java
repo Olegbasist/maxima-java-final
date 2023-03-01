@@ -1,6 +1,7 @@
 package org.example.maximajavafinal;
 
 import jakarta.annotation.PostConstruct;
+import org.example.maximajavafinal.model.Customer;
 import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.service.CustomerService;
@@ -18,7 +19,7 @@ import java.util.Random;
 public class TestEntitiesMaker {
 
     @Autowired
-    GuideService guideService;
+    private GuideService guideService;
 
     @Autowired
     ExcursionService excursionService;
@@ -29,7 +30,7 @@ public class TestEntitiesMaker {
     @Autowired
     CustomerService customerService;
 
-    public TestEntitiesMaker() {
+    TestEntitiesMaker() {
     }
 
     @PostConstruct
@@ -55,12 +56,12 @@ public class TestEntitiesMaker {
 
 
     }
-    public void makeTestExcursions (int count) {
+    public void makeTestExcursions (int quantity) {
 
         System.out.println("Creating excursions and tickets ... ");
         int guidesCount = guideService.findAll().size()+1;
-        int i=0;
-        while (i<count) {
+
+        while (quantity>0) {
             Excursion excursion = new Excursion();
             int year = new Random().nextInt(1997, 2048);
 
@@ -71,7 +72,7 @@ public class TestEntitiesMaker {
             excursion.setDate(new Date());
             excursionService.save(excursion);
             ticketService.makeTickets(20,186,excursion);
-            i++;
+            quantity--;
         }
         System.out.println("");
         System.out.println("////////////////////////////////////////////////");
@@ -80,5 +81,12 @@ public class TestEntitiesMaker {
         excursionService.findAll().forEach(e -> System.out.println(e));
         System.out.println("");
         System.out.println("////////////////////////////////////////////////");*/
+    }
+
+    public void makeTestCustomers (int quantity) {
+        System.out.println("Creating some customers ...");
+        while (quantity>0){
+            customerService.save(new Customer("Name","Phone: +486874955574"));
+        }
     }
 }

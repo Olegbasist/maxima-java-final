@@ -1,8 +1,8 @@
 package org.example.maximajavafinal.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -13,6 +13,9 @@ public class Customer {
     private String name;
 
     private String contacts;
+
+    @OneToMany (cascade = CascadeType.MERGE, mappedBy = "customer", fetch = FetchType.EAGER)
+    private List<Ticket> tickets;
 
     public Long getId() {
         return id;
@@ -37,6 +40,14 @@ public class Customer {
     public Customer(String name, String contacts) {
         this.name = name;
         this.contacts = contacts;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 
     public Customer() {

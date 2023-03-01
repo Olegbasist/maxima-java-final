@@ -13,6 +13,9 @@ public class Ticket {
     @ManyToOne (cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Excursion excursion;
 
+    @ManyToOne (cascade = CascadeType.MERGE)
+    private Customer customer;
+
     private boolean available = true;
 
     public long getId() {
@@ -30,6 +33,14 @@ public class Ticket {
 
     public Excursion getExcursion() {
         return excursion;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public boolean isAvailable() {
