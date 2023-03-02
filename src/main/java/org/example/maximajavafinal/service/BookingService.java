@@ -39,6 +39,6 @@ public class BookingService {
 
     }
     public void signOut (Customer customer, Excursion excursion, int quantity) {
-
+        System.out.println("Not available for now. Query under construction.");
     }
 }
