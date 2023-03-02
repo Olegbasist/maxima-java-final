@@ -29,10 +29,10 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 	CustomerService customerService;
 
 	@Autowired
-	ExcursionServiceCopy excursionServiceCopy;
+	BookingService bookingService;
 
 	@Autowired
-	BookingService bookingService;
+	GeneratedProductService generatedProductService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MaximaJavaFinalApplication.class, args);
@@ -89,7 +89,10 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		//excursionService.findAll().forEach(excursion -> System.out.println(excursion.getId() + " " + excursion.getTickets().size()));
 
 		System.out.println("Try to call generic method:");
-		//excursionServiceCopy.findAll();
+		generatedProductService.save(new Product());
+		//Product product = generatedProductService.findById(1L);
+		System.out.println(generatedProductService.findById(1L));
+		generatedProductService.findAll();
 
 	}
 
