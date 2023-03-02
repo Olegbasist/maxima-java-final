@@ -2,10 +2,7 @@ package org.example.maximajavafinal;
 
 import jakarta.annotation.PostConstruct;
 import org.example.maximajavafinal.model.*;
-import org.example.maximajavafinal.service.CustomerService;
-import org.example.maximajavafinal.service.ExcursionService;
-import org.example.maximajavafinal.service.GuideService;
-import org.example.maximajavafinal.service.TicketService;
+import org.example.maximajavafinal.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -30,6 +27,9 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 
 	@Autowired
 	CustomerService customerService;
+
+	@Autowired
+	BookingService bookingService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MaximaJavaFinalApplication.class, args);
@@ -68,24 +68,23 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		customerService.findAll().forEach(System.out::println);
 		System.out.println("");
 
-		System.out.println("Check in customer " + customerService.findById(1L));
+		Customer customer1 = customerService.findById(1L);
+		System.out.println("Check in customer " + customer1.getName());
+		bookingService.signUp(customer1, excursionService.findById(1L), 4);
+		System.out.println("Result:");
+		System.out.println();
 
-		Ticket ticket = new Ticket(100,excursionService.findById(1L));
-		ticket.setCustomer(customerService.findById(1L));
-		ticketService.save(ticket);
-		System.out.println(ticketService.findById(ticket.getId()));
-		ticket.setPrice(158);
-		ticketService.save(ticket);
-		System.out.println(ticketService.findById(ticket.getId()));
+		customerService.findById(customer1.getId()).getTickets().forEach(System.out::println);
+
 		System.out.println("");
 		//ticketService.deleteById(ticket.getId());
-		customerService.findAll().forEach(System.out::println);
+		//customerService.findAll().forEach(System.out::println);
 		//System.out.println(ticketService.findById(ticket.getId()));
 
 		System.out.println("");
 		System.out.println("All available tickets: ");
 		System.out.println(ticketService.findAll().size());
-		excursionService.findAll().forEach(excursion -> System.out.println(excursion.getId() + " " + excursion.getTickets().size()));
+		//excursionService.findAll().forEach(excursion -> System.out.println(excursion.getId() + " " + excursion.getTickets().size()));
 
 	}
 

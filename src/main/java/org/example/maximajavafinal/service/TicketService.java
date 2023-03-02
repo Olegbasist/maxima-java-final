@@ -14,12 +14,6 @@ public class TicketService {
     private TicketRepository repository;
 
     public void save (Ticket ticket) {repository.save(ticket);}
-    public void makeTickets (int quantity, int price, Excursion excursion){
-        while (quantity>0){
-            save(new Ticket(price,excursion));
-            quantity--;
-        }
-    }
 
     public List<Ticket> findAll () {
         return repository.findAll();

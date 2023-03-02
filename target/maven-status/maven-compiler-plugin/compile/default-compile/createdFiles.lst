@@ -13,4 +13,5 @@ org\example\maximajavafinal\repository\TicketRepository.class
 org\example\maximajavafinal\service\TicketService.class
 org\example\maximajavafinal\service\CustomerService.class
 org\example\maximajavafinal\repository\ExcursionRepository.class
+org\example\maximajavafinal\service\BookingService.class
 org\example\maximajavafinal\model\Product.class

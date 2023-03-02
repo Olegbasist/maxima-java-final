@@ -58,9 +58,11 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(int price, Excursion excursion) {
-        this.price = price;
+
+    public Ticket(Excursion excursion, Customer customer) {
+        this.price = 0;
         this.excursion = excursion;
+        this.customer = customer;
     }
 
     @Override
