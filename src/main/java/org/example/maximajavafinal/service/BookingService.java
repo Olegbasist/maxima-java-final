@@ -22,11 +22,23 @@ public class BookingService {
 
     public void signUp (Customer customer, Excursion excursion, int quantity) {
         if (excursion.getCapacity() > quantity) {
+            int counter = 0;
             while (quantity>0) {
                 ticketService.save(new Ticket(excursion,customer));
                 quantity--;
+                counter ++;
             }
+            System.out.println("Customer " + customer.getName() +
+                    " successfully signed on '" + excursion.getName() +
+                    "' at " + excursion.getDate() +
+                    " with " + counter + " tickets" );
+        }else {
+            System.out.println("Not enough free tickets (" + quantity + "). Try to request less, or enlarge excursion capacity.");
         }
+
+
+    }
+    public void signOut (Customer customer, Excursion excursion, int quantity) {
 
     }
 }

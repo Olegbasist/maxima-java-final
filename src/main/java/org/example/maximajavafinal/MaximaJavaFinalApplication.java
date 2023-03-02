@@ -73,7 +73,6 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		bookingService.signUp(customer1, excursionService.findById(1L), 4);
 		System.out.println("Result:");
 		System.out.println();
-
 		customerService.findById(customer1.getId()).getTickets().forEach(System.out::println);
 
 		System.out.println("");
