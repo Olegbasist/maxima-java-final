@@ -111,7 +111,7 @@ public class Excursion {
                 ", date=" + date +
                 ", guide=" + guide +
                 ", capacity=" + capacity +
-                ", reserved tickets=" + tickets.size() +
+                ", booked tickets=" + tickets.size() +
                 '}';
     }
 }
