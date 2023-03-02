@@ -70,6 +70,7 @@ public class TestEntitiesMaker {
             excursion.setDescription("Do you know what is the best thing about future? Well, you never feel obliged to take the same route when you are in time loop. At least, that’s what I did when I had a chance to change everything in several years past from now.");
             excursion.setGuide(guideService.findByID(new Random().nextLong(1,guidesCount)));
             excursion.setDate(new Date());
+            excursion.setCapacity(20);
             excursionService.save(excursion);
             //ticketService.makeTickets(20,186,excursion);
             quantity--;
