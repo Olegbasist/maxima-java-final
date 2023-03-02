@@ -1,4 +1,5 @@
 package org.example.maximajavafinal.service;
+import org.example.maximajavafinal.model.Customer;
 import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Ticket;
 import org.example.maximajavafinal.repository.TicketRepository;
@@ -24,8 +25,10 @@ public class TicketService {
         return repository.findAll();
     }
 
-    public Ticket findById (Long id) {return repository.findById(id).get();}
+    public Ticket findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
+
 
 
     public void deleteById (Long id) {repository.deleteById(id);}
+
 }

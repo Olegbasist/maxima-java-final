@@ -71,7 +71,7 @@ public class TestEntitiesMaker {
             excursion.setGuide(guideService.findByID(new Random().nextLong(1,guidesCount)));
             excursion.setDate(new Date());
             excursionService.save(excursion);
-            ticketService.makeTickets(20,186,excursion);
+            //ticketService.makeTickets(20,186,excursion);
             quantity--;
         }
         System.out.println("");

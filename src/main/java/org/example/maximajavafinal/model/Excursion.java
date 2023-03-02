@@ -22,6 +22,8 @@ public class Excursion {
 
     private Date date;
 
+    private int capacity;
+
 
     @ManyToOne (cascade = CascadeType.MERGE)
     private Guide guide;
@@ -59,6 +61,14 @@ public class Excursion {
         this.date = date;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
     public Guide getGuide() {
         return guide;
     }
@@ -86,9 +96,10 @@ public class Excursion {
     public Excursion() {
     }
 
-    public Excursion(String name, Date date) {
+    public Excursion(String name, Date date, int capacity) {
         this.name = name;
         this.date = date;
+        this.capacity = capacity;
     }
 
     @Override
@@ -99,7 +110,8 @@ public class Excursion {
                 //", description='" + description + '\'' +
                 ", date=" + date +
                 ", guide=" + guide +
-                ", tickets=" + tickets.size() +
+                ", capacity=" + capacity +
+                ", reserved tickets=" + tickets.size() +
                 '}';
     }
 }

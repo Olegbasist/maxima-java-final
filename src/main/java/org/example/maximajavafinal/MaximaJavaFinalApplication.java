@@ -66,6 +66,25 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		customerService.save(new Customer("Janny","Call me later +49 221 112 22 11"));
 		System.out.println("Our dear customers: ");
 		customerService.findAll().forEach(System.out::println);
+		System.out.println("");
+
+		System.out.println("Check in customer " + customerService.findById(1L));
+
+		Ticket ticket = new Ticket(100,excursionService.findById(1L));
+		ticket.setCustomer(customerService.findById(1L));
+		ticketService.save(ticket);
+		System.out.println(ticketService.findById(ticket.getId()));
+		ticket.setPrice(158);
+		ticketService.save(ticket);
+		System.out.println(ticketService.findById(ticket.getId()));
+		System.out.println("");
+		ticketService.deleteById(ticket.getId());
+		customerService.findAll().forEach(System.out::println);
+		//System.out.println(ticketService.findById(ticket.getId()));
+
+		System.out.println("");
+		System.out.println("All available tickets: ");
+		System.out.println(ticketService.findAll().size());
 
 	}
 
