@@ -29,6 +29,9 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 	CustomerService customerService;
 
 	@Autowired
+	ExcursionServiceCopy excursionServiceCopy;
+
+	@Autowired
 	BookingService bookingService;
 
 	public static void main(String[] args) {
@@ -84,6 +87,9 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		System.out.println("All available tickets: ");
 		System.out.println(ticketService.findAll().size());
 		//excursionService.findAll().forEach(excursion -> System.out.println(excursion.getId() + " " + excursion.getTickets().size()));
+
+		System.out.println("Try to call generic method:");
+		//excursionServiceCopy.findAll();
 
 	}
 
