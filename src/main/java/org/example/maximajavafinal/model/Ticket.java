@@ -1,6 +1,7 @@
 package org.example.maximajavafinal.model;
 
 import jakarta.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Ticket {
@@ -17,6 +18,7 @@ public class Ticket {
     @ManyToOne (cascade = CascadeType.MERGE)
     private Customer customer;
 
+    final Date creationDate = new Date();
     private boolean available = true;
 
     public long getId() {
@@ -50,6 +52,10 @@ public class Ticket {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
     }
 
     public boolean isAvailable() {
