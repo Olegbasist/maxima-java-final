@@ -8,6 +8,7 @@ public class Ticket {
     @Id @GeneratedValue
     private long id;
 
+    private String type;
     private int price;
 
     @ManyToOne (cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
@@ -20,6 +21,14 @@ public class Ticket {
 
     public long getId() {
         return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getPrice() {
@@ -60,6 +69,7 @@ public class Ticket {
 
 
     public Ticket(Excursion excursion, Customer customer) {
+        this.type = "booking";
         this.price = 0;
         this.excursion = excursion;
         this.customer = customer;
@@ -69,8 +79,8 @@ public class Ticket {
     public String toString() {
         return "Ticket{" +
                 "id=" + id +
+                ", type='" + type + '\'' +
                 ", price=" + price +
-                //", excursion=" + excursion.getId() + excursion.getName() +
                 '}';
     }
 }
