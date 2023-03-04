@@ -11,9 +11,7 @@ import org.example.maximajavafinal.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Random;
 
 
@@ -68,7 +66,7 @@ public class TestEntitiesMaker {
             int year = new Random().nextInt(1997, 2048);
 
             String name = String.format("Tour to the incredible year of %s", year);
-            excursion.setName(name);
+            excursion.setTitle(name);
             excursion.setDescription("Do you know what is the best thing about future? Well, you never feel obliged to take the same route when you are in time loop. At least, that’s what I did when I had a chance to change everything in several years past from now.");
             excursion.setGuide(guideService.findByID(new Random().nextLong(1,guidesCount)));
             excursion.setDate(new Date());

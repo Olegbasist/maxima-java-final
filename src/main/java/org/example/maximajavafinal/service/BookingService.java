@@ -29,7 +29,7 @@ public class BookingService {
                 counter ++;
             }
             System.out.println("Customer " + customer.getName() +
-                    " successfully signed on '" + excursion.getName() +
+                    " successfully signed on '" + excursion.getTitle() +
                     "' at " + excursion.getDate() +
                     " with " + counter + " tickets" );
         }else {
