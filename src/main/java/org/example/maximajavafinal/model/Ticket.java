@@ -10,6 +10,7 @@ public class Ticket {
     private long id;
 
     private String type;
+
     private int price;
 
     @ManyToOne (cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
