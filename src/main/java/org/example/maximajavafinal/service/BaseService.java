@@ -1,6 +1,7 @@
 package org.example.maximajavafinal.service;
 
 import jakarta.persistence.Inheritance;
+import org.example.maximajavafinal.exeptions.NotFoundExeption;
 import org.example.maximajavafinal.model.AbstractBaseEntity;
 import org.example.maximajavafinal.model.Product;
 import org.example.maximajavafinal.repository.AbstractBaseRepository;
@@ -30,7 +31,8 @@ public abstract class BaseService <T extends AbstractBaseEntity, ID extends Seri
 
     @Override
     public T findById(ID id) {
-        return abstractBaseRepository.findById(id).isEmpty() ? null : abstractBaseRepository.findById(id).get();
+        return abstractBaseRepository.findById(id).orElseThrow(() -> NotFoundExeption::new);
+        //return abstractBaseRepository.findById(id).isEmpty() ? null : abstractBaseRepository.findById(id).get();
     }
     public Optional<T> findByIdWithOptional(ID id) {
         return abstractBaseRepository.findById(id); // Optional умеет возвращать не null

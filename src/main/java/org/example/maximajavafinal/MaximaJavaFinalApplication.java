@@ -90,11 +90,11 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 
 		System.out.println("Try to call generic method:");
 		generatedProductService.save(new Product());
-		//Product product = generatedProductService.findById(1L);
-		System.out.println(generatedProductService.findById(1L));
-		generatedProductService.deleteById(8L);
-		System.out.println(generatedProductService.findById(1L));
-		generatedProductService.findAll();
+
+		System.out.println(generatedProductService.findByIdWithOptional(1L));
+		generatedProductService.deleteById(1L);
+		System.out.println(generatedProductService.findByIdWithOptional(1L));
+
 
 	}
 
