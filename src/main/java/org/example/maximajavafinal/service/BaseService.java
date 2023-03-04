@@ -2,13 +2,15 @@ package org.example.maximajavafinal.service;
 
 import jakarta.persistence.Inheritance;
 import org.example.maximajavafinal.model.AbstractBaseEntity;
+import org.example.maximajavafinal.model.Product;
 import org.example.maximajavafinal.repository.AbstractBaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 @Inheritance
 public abstract class BaseService <T extends AbstractBaseEntity, ID extends Serializable> implements AbstractBaseService <T, ID> {
@@ -27,8 +29,11 @@ public abstract class BaseService <T extends AbstractBaseEntity, ID extends Seri
     }
 
     @Override
-    public Optional<T> findById(ID id) {
-        return abstractBaseRepository.findById(id);
+    public T findById(ID id) {
+        return abstractBaseRepository.findById(id).isEmpty() ? null : abstractBaseRepository.findById(id).get();
+    }
+    public Optional<T> findByIdWithOptional(ID id) {
+        return abstractBaseRepository.findById(id); // Optional умеет возвращать не null
     }
 
     @Override
@@ -46,7 +51,9 @@ public abstract class BaseService <T extends AbstractBaseEntity, ID extends Seri
     }
 
     @Override
-    public void deleteById(ID entityId) {
-
+    public void deleteById(ID id) {
+        if (findById(id) != null) {
+            abstractBaseRepository.deleteById(id);
+        }
     }
 }

@@ -10,7 +10,8 @@ public interface AbstractBaseService<T extends AbstractBaseEntity, ID extends Se
 
     public abstract T save(T entity);
     public abstract List<T> findAll();
-    public abstract Optional<T> findById(ID entityId);
+    public abstract T findById(ID entityId);
+
     public abstract T update(T entity);
     public abstract T updateById(T entity, ID entityId);
     public abstract void delete(T entity);

@@ -92,6 +92,8 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		generatedProductService.save(new Product());
 		//Product product = generatedProductService.findById(1L);
 		System.out.println(generatedProductService.findById(1L));
+		generatedProductService.deleteById(8L);
+		System.out.println(generatedProductService.findById(1L));
 		generatedProductService.findAll();
 
 	}
