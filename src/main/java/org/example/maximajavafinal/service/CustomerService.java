@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CustomerService {
-    @Autowired
-    private CustomerRepository repository;
+public class CustomerService extends SimpleService<Customer, Long>{
+    /*@Autowired
+    private CustomerRepository repository;*/
 
-    public void save (Customer customer) {repository.save(customer);}
+    /*public void save (Customer customer) {repository.save(customer);}
 
     public List<Customer> findAll () {
         return repository.findAll();
@@ -20,5 +20,5 @@ public class CustomerService {
     public Customer findById (Long id) {return repository.findById(id).get();}
 
 
-    public void deleteById (Long id) {repository.deleteById(id);}
+    public void deleteById (Long id) {repository.deleteById(id);}*/
 }

@@ -5,10 +5,8 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Customer {
+public class Customer  extends AbstractEntity {
 
-    @Id @GeneratedValue
-    private long id;
 
     private String name;
 
@@ -17,9 +15,6 @@ public class Customer {
     @OneToMany (cascade = CascadeType.MERGE, mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Ticket> tickets;
 
-    public Long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -56,7 +51,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", name='" + name + '\'' +
                 ", contacts='" + contacts + '\'' +
                 '}';

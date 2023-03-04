@@ -1,14 +1,11 @@
 package org.example.maximajavafinal;
 
-import jakarta.annotation.PostConstruct;
 import org.example.maximajavafinal.model.*;
 import org.example.maximajavafinal.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.List;
 
 @SpringBootApplication
 public class MaximaJavaFinalApplication implements CommandLineRunner {
@@ -32,7 +29,7 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 	BookingService bookingService;
 
 	@Autowired
-	GeneratedProductService generatedProductService;
+	GeneratedProductSimpleService generatedProductService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MaximaJavaFinalApplication.class, args);
@@ -73,12 +70,15 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 
 		Customer customer1 = customerService.findById(1L);
 		System.out.println("Check in customer " + customer1.getName());
-		bookingService.signUp(customer1, excursionService.findById(1L), 4);
-		System.out.println("Result:");
-		System.out.println();
-		customerService.findById(customer1.getId()).getTickets().forEach(System.out::println);
 
+		//Вот тут вылетает ошибка
+		//bookingService.signUp(customer1, excursionService.findById(1L), 4);
+		
+		System.out.println("Result:");
 		System.out.println("");
+		customerService.findById(customer1.getId()).getTickets().forEach(System.out::println);
+		System.out.println("");
+
 		//ticketService.deleteById(ticket.getId());
 		//customerService.findAll().forEach(System.out::println);
 		//System.out.println(ticketService.findById(ticket.getId()));
@@ -92,8 +92,10 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		generatedProductService.save(new Product());
 
 		System.out.println(generatedProductService.findById(1L));
-		generatedProductService.deleteById(1L);
-		System.out.println(generatedProductService.findById(1L));
+		generatedProductService.deleteAll();
+		System.out.println("");
+		System.out.println("All available products: ");
+		System.out.println(generatedProductService.findAll().size());
 
 
 	}
