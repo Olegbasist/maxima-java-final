@@ -8,17 +8,19 @@ import java.util.List;
 
 @Service
 public class CustomerService extends SimpleService<Customer, Long>{
-    /*@Autowired
-    private CustomerRepository repository;*/
+
+    @Autowired
+    private CustomerRepository<Customer, Long> repository;
 
     /*public void save (Customer customer) {repository.save(customer);}
 
     public List<Customer> findAll () {
         return repository.findAll();
-    }
+    }*/
 
-    public Customer findById (Long id) {return repository.findById(id).get();}
+    /*@Override
+    public Customer findById (Long id) {return repository.findById(id).get();}*/
 
 
-    public void deleteById (Long id) {repository.deleteById(id);}*/
+    //public void deleteById (Long id) {repository.deleteById(id);}
 }

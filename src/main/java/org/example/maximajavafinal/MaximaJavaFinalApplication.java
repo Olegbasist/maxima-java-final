@@ -73,8 +73,8 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 
 		//Вот тут вылетает ошибка
 		//bookingService.signUp(customer1, excursionService.findById(1L), 4);
-		
-		System.out.println("Result:");
+
+		/*System.out.println("Result:");
 		System.out.println("");
 		customerService.findById(customer1.getId()).getTickets().forEach(System.out::println);
 		System.out.println("");
@@ -95,7 +95,7 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		generatedProductService.deleteAll();
 		System.out.println("");
 		System.out.println("All available products: ");
-		System.out.println(generatedProductService.findAll().size());
+		System.out.println(generatedProductService.findAll().size());*/
 
 
 	}

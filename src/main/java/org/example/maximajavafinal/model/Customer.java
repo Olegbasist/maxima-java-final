@@ -7,10 +7,17 @@ import java.util.List;
 @Entity
 public class Customer  extends AbstractEntity {
 
+    @Id @GeneratedValue
+    private long id;
+
 
     private String name;
 
     private String contacts;
+
+    public long getId() {
+        return id;
+    }
 
     @OneToMany (cascade = CascadeType.MERGE, mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Ticket> tickets;
@@ -51,7 +58,7 @@ public class Customer  extends AbstractEntity {
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + getId() +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", contacts='" + contacts + '\'' +
                 '}';

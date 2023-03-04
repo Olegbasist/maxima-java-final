@@ -3,10 +3,8 @@ package org.example.maximajavafinal.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Ticket {
+public class Ticket extends AbstractEntity {
 
-    @Id @GeneratedValue
-    private long id;
 
     private int price;
 
@@ -17,10 +15,6 @@ public class Ticket {
     private Customer customer;
 
     private boolean available = true;
-
-    public long getId() {
-        return id;
-    }
 
     public int getPrice() {
         return price;
@@ -68,7 +62,7 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", price=" + price +
                 //", excursion=" + excursion.getId() + excursion.getName() +
                 '}';

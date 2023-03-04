@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 
 import java.io.Serializable;
 
+
 @Entity
 public abstract class AbstractEntity implements Serializable {
 
@@ -15,8 +16,6 @@ public abstract class AbstractEntity implements Serializable {
     public long getId() {
         return id;
     }
-
-
 
     public AbstractEntity() {
     }

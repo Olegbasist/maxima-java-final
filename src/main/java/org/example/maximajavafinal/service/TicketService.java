@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TicketService {
-    @Autowired
-    private TicketRepository repository;
+public class TicketService extends SimpleService<Ticket, Long>{
 
-    public void save (Ticket ticket) {repository.save(ticket);}
+    /*@Autowired
+    private TicketRepository<Ticket, Long> repository;*/
+
+    /*public void save (Ticket ticket) {repository.save(ticket);}
 
     public List<Ticket> findAll () {
         return repository.findAll();
@@ -22,7 +23,6 @@ public class TicketService {
     public Ticket findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
 
 
-
-    public void deleteById (Long id) {repository.deleteById(id);}
+    public void deleteById (Long id) {repository.deleteById(id);}*/
 
 }
