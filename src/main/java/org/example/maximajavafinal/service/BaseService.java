@@ -31,12 +31,12 @@ public abstract class BaseService <T extends AbstractBaseEntity, ID extends Seri
 
     @Override
     public T findById(ID id) {
-        return abstractBaseRepository.findById(id).orElseThrow(() -> NotFoundExeption::new);
-        //return abstractBaseRepository.findById(id).isEmpty() ? null : abstractBaseRepository.findById(id).get();
+        //return abstractBaseRepository.findById(id).orElse(null);
+        return abstractBaseRepository.findById(id).orElseThrow(() ->new NotFoundExeption("id=" + id));
     }
-    public Optional<T> findByIdWithOptional(ID id) {
+    /*public Optional<T> findByIdWithOptional(ID id) {
         return abstractBaseRepository.findById(id); // Optional умеет возвращать не null
-    }
+    }*/
 
     @Override
     public T update(T entity) {
@@ -56,6 +56,6 @@ public abstract class BaseService <T extends AbstractBaseEntity, ID extends Seri
     public void deleteById(ID id) {
         if (findById(id) != null) {
             abstractBaseRepository.deleteById(id);
-        }
+        } else System.out.println("No such id=" +id +". Nothing deleted!");
     }
 }

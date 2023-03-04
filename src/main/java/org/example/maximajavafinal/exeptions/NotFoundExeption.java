@@ -1,5 +1,7 @@
 package org.example.maximajavafinal.exeptions;
 
-public class NotFoundExeption extends NullPointerException{
-    public NotFoundExeption(String message) {super("Not found " + message);}
+import java.util.NoSuchElementException;
+
+public class NotFoundExeption extends RuntimeException {
+    public NotFoundExeption(String message) {super("Not found object with " + message);}
 }
