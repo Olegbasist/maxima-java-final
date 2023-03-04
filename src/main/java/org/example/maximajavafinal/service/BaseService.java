@@ -1,17 +1,13 @@
 package org.example.maximajavafinal.service;
 
 import jakarta.persistence.Inheritance;
-import org.example.maximajavafinal.exeptions.NotFoundExeption;
+import org.example.maximajavafinal.exeptions.NotFoundException;
 import org.example.maximajavafinal.model.AbstractBaseEntity;
-import org.example.maximajavafinal.model.Product;
 import org.example.maximajavafinal.repository.AbstractBaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.function.Supplier;
 
 @Inheritance
 public abstract class BaseService <T extends AbstractBaseEntity, ID extends Serializable> implements AbstractBaseService <T, ID> {
@@ -31,11 +27,10 @@ public abstract class BaseService <T extends AbstractBaseEntity, ID extends Seri
 
     @Override
     public T findById(ID id) {
-        //return abstractBaseRepository.findById(id).orElse(null);
-        return abstractBaseRepository.findById(id).orElseThrow(() ->new NotFoundExeption("id=" + id));
+        return abstractBaseRepository.findById(id).orElseThrow(() ->new NotFoundException("id=" + id));
     }
     /*public Optional<T> findByIdWithOptional(ID id) {
-        return abstractBaseRepository.findById(id); // Optional умеет возвращать не null
+        return abstractBaseRepository.findById(id); // Optional умеет возвращать если объект null
     }*/
 
     @Override

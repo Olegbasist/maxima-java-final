@@ -1,6 +1,6 @@
 package org.example.maximajavafinal.advice;
 
-import org.example.maximajavafinal.exeptions.NotFoundExeption;
+import org.example.maximajavafinal.exeptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class NotFoundAdvice {
 
     @ResponseBody
-    @ExceptionHandler(NotFoundExeption.class)
+    @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String notFoundAdvice (NotFoundExeption exeption) {
-        return exeption.getMessage();
+    String notFoundAdvice (NotFoundException exception) {
+        return exception.getMessage();
     }
 
 }

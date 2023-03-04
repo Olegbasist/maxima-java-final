@@ -1,5 +1,5 @@
 org\example\maximajavafinal\service\GuideService.class
-org\example\maximajavafinal\exeptions\NotFoundExeption.class
+org\example\maximajavafinal\advice\NotFoundAdvice.class
 org\example\maximajavafinal\ServletInitializer.class
 org\example\maximajavafinal\repository\GuideRepository.class
 org\example\maximajavafinal\repository\CustomerRepository.class
@@ -13,6 +13,7 @@ org\example\maximajavafinal\service\GeneratedProductService.class
 org\example\maximajavafinal\model\Guide.class
 org\example\maximajavafinal\service\ExcursionService.class
 org\example\maximajavafinal\model\Excursion.class
+org\example\maximajavafinal\exeptions\NotFoundException.class
 org\example\maximajavafinal\service\AbstractBaseService.class
 org\example\maximajavafinal\TestEntitiesMaker.class
 org\example\maximajavafinal\service\BaseService.class
