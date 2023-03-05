@@ -20,6 +20,11 @@ public class CustomerService {
     @Transactional(readOnly = true)
     public Customer findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
 
+    public List<Customer> findByName (String name) {
+
+        repository.findAll();
+        return null;
+    }
 
     public void deleteById (Long id) {repository.deleteById(id);}
 
