@@ -20,8 +20,9 @@ public class CustomerService {
     @Transactional(readOnly = true)
     public Customer findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
 
+    @Transactional (readOnly = true)
     public List<Customer> findByNameContaining (String name) {
-        return repository.findByNameContaining(name);
+        return repository.findByNameContainingIgnoreCase(name);
     }
 
     public void deleteById (Long id) {repository.deleteById(id);}

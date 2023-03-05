@@ -71,6 +71,11 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		customerService.findByNameContaining(name).forEach(customer -> System.out.println(customer));
 		System.out.println();
 
+		String gideName = "connor";
+		System.out.println("Let's find out Gide by name :" + gideName);
+		guideService.findByNameContaining(gideName).forEach(guide -> System.out.println(guide));
+		System.out.println();
+
 		Customer customer1 = customerService.findById(1L);
 		System.out.println("Check in customer " + customer1.getName());
 		bookingService.signUp(customer1, excursionService.findById(1L), 4);

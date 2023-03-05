@@ -22,6 +22,10 @@ public class GuideService {
     @Transactional (readOnly = true)
     public Guide findByID (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
 
+    @Transactional (readOnly = true)
+    public List<Guide> findByNameContaining (String name) {
+        return repository.findByNameContainingIgnoreCase(name);
+    }
     public void deleteById (Long id) {repository.deleteById(id);}
 
     public void deleteAll () {repository.deleteAll();}
