@@ -22,6 +22,9 @@ public class TicketService {
     @Transactional(readOnly = true)
     public Ticket findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
 
+    public List<Ticket> findAllTicketsByCustomerAndExcursion (long customerId, long excursionId) {
+        return repository.findByCustomer_IdAndExcursion_Id(customerId, excursionId);
+    }
     public void deleteById (Long id) {repository.deleteById(id);}
 
     public void deleteAll () {repository.deleteAll();}

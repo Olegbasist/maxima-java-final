@@ -1,5 +1,6 @@
 package org.example.maximajavafinal.repository;
 
+import org.example.maximajavafinal.model.Customer;
 import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Guide;
 import org.springframework.data.jpa.repository.JpaRepository;
