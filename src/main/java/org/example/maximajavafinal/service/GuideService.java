@@ -27,9 +27,9 @@ public class GuideService {
     public List<Guide> findByNameContaining (String name) {
         return repository.findByNameContainingIgnoreCase(name);
     }
-    public void assignGuideToExcursion (Guide guide, Excursion excursion) {
+    /*public void assignGuideToExcursion (Guide guide, Excursion excursion) {
         new ExcursionService().assignGuideToExcursion(guide, excursion);
-    }
+    }*/
 
     public void deleteById (Long id) {repository.deleteById(id);}
 
