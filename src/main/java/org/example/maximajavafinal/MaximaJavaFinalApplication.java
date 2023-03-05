@@ -69,9 +69,10 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		excursionService.assignGuideToExcursion(guide1L, excursion1L);
 		Excursion excursion3L = excursionService.findById(3L);
 		excursionService.assignGuideToExcursion(guide1L, excursion3L);
-		/*excursionService.reliveGuideFromExcursion(excursion);
-		excursionService.reliveGuideFromExcursion(excursion1L);*/
 		excursionService.findAll().forEach(excursion1 -> System.out.println(excursion1.getGuide()));
+		System.out.println();
+		System.out.println("Let's find out what excursions guide " +guide1L.getName()+ " assigned:");
+		excursionService.findByGuide(guide1L.getId()).forEach(System.out::println);
 		System.out.println();
 
 		System.out.println("Our dear customers: ");
