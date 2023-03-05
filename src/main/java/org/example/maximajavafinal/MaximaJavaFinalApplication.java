@@ -90,13 +90,13 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		guideService.findByNameContaining(gideName).forEach(guide -> System.out.println(guide));
 		System.out.println();
 
-		Customer customer1 = customerService.findById(1L);
+		/*Customer customer1 = customerService.findById(1L);
 		System.out.println("Check in customer " + customer1.getName());
 		bookingService.signUp(customer1, excursionService.findById(1L), 4);
 		System.out.println("Result:");
 		customerService.findById(customer1.getId()).getTickets().forEach(System.out::println);
-		System.out.println("And now new way:");
-		ticketService.findAllTicketsByCustomerAndExcursion(1L,1L).forEach(System.out::println);
+		System.out.println("And now new way:");*/
+		//ticketService.findAllTicketsByCustomerAndExcursion(1L,1L).forEach(System.out::println);
 
 
 		System.out.println("");
