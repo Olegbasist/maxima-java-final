@@ -14,6 +14,7 @@ public class GuideService {
     @Autowired
     private GuideRepository repository;
 
+
     public void save (Guide newGuide) {repository.save(newGuide);}
     @Transactional (readOnly = true)
     public List<Guide> findAll () {
@@ -27,9 +28,6 @@ public class GuideService {
     public List<Guide> findByNameContaining (String name) {
         return repository.findByNameContainingIgnoreCase(name);
     }
-    /*public void assignGuideToExcursion (Guide guide, Excursion excursion) {
-        new ExcursionService().assignGuideToExcursion(guide, excursion);
-    }*/
 
     public void deleteById (Long id) {repository.deleteById(id);}
 

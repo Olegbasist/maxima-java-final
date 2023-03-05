@@ -31,6 +31,10 @@ public class ExcursionService {
         excursion.setGuide(guide);
         save(excursion);
     }
+
+    public void reliveGuideFromExcursion(Excursion excursion) {
+        assignGuideToExcursion(null,excursion);
+    }
     public void deleteById (Long id) {repository.deleteById(id);}
 
     public void deleteAll () {repository.deleteAll();}
