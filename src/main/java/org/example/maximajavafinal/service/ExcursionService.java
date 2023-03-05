@@ -20,7 +20,7 @@ public class ExcursionService {
     }
 
     @Transactional (readOnly = true)
-    public Excursion findById (Long id) {return repository.findById(id).get();}
+    public Excursion findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
 
     public void deleteById (Long id) {repository.deleteById(id);}
 

@@ -13,14 +13,14 @@ public class GuideService {
     @Autowired
     private GuideRepository repository;
 
+    public void save (Guide newGuide) {repository.save(newGuide);}
     @Transactional (readOnly = true)
     public List<Guide> findAll () {
         return repository.findAll();
     }
 
     @Transactional (readOnly = true)
-    public Guide findByID (Long id) {return repository.findById(id).get();}
-    public void save (Guide newGuide) {repository.save(newGuide);}
+    public Guide findByID (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
 
     public void deleteById (Long id) {repository.deleteById(id);}
 
