@@ -1,5 +1,6 @@
 package org.example.maximajavafinal.service;
 
+import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.repository.GuideRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class GuideService {
     public List<Guide> findByNameContaining (String name) {
         return repository.findByNameContainingIgnoreCase(name);
     }
+    public void assignGuideToExcursion (Guide guide, Excursion excursion) {
+        new ExcursionService().assignGuideToExcursion(guide, excursion);
+    }
+
     public void deleteById (Long id) {repository.deleteById(id);}
 
     public void deleteAll () {repository.deleteAll();}
