@@ -21,8 +21,8 @@ public class TicketService {
 
     public Ticket findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
 
-
-
     public void deleteById (Long id) {repository.deleteById(id);}
+
+    public void deleteAll () {repository.deleteAll();}
 
 }

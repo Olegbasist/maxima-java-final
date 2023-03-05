@@ -21,4 +21,6 @@ public class CustomerService {
 
 
     public void deleteById (Long id) {repository.deleteById(id);}
+
+    public void deleteAll () {repository.deleteAll();}
 }
