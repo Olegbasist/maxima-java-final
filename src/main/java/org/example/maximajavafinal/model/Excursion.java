@@ -1,9 +1,6 @@
 package org.example.maximajavafinal.model;
 
-import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
-import org.example.maximajavafinal.service.ExcursionService;
-import org.example.maximajavafinal.service.TicketService;
 
 import java.util.Date;
 import java.util.List;
@@ -16,7 +13,7 @@ public class Excursion {
     @GeneratedValue
     private long id;
 
-    private String name;
+    private String title;
 
     private String description;
 
@@ -37,12 +34,12 @@ public class Excursion {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = name;
     }
 
     public String getDescription() {
@@ -96,8 +93,8 @@ public class Excursion {
     public Excursion() {
     }
 
-    public Excursion(String name, Date date, int capacity) {
-        this.name = name;
+    public Excursion(String title, Date date, int capacity) {
+        this.title = title;
         this.date = date;
         this.capacity = capacity;
     }
@@ -106,7 +103,7 @@ public class Excursion {
     public String toString() {
         return "Excursion{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + title + '\'' +
                 //", description='" + description + '\'' +
                 ", date=" + date +
                 ", guide=" + guide +

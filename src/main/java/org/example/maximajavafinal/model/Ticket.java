@@ -1,12 +1,15 @@
 package org.example.maximajavafinal.model;
 
 import jakarta.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Ticket {
 
     @Id @GeneratedValue
     private long id;
+
+    private String type;
 
     private int price;
 
@@ -16,10 +19,19 @@ public class Ticket {
     @ManyToOne (cascade = CascadeType.MERGE)
     private Customer customer;
 
+    final Date creationDate = new Date();
     private boolean available = true;
 
     public long getId() {
         return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getPrice() {
@@ -43,6 +55,10 @@ public class Ticket {
         this.customer = customer;
     }
 
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
     public boolean isAvailable() {
         return available;
     }
@@ -60,6 +76,7 @@ public class Ticket {
 
 
     public Ticket(Excursion excursion, Customer customer) {
+        this.type = "booking";
         this.price = 0;
         this.excursion = excursion;
         this.customer = customer;
@@ -69,8 +86,8 @@ public class Ticket {
     public String toString() {
         return "Ticket{" +
                 "id=" + id +
+                ", type='" + type + '\'' +
                 ", price=" + price +
-                //", excursion=" + excursion.getId() + excursion.getName() +
                 '}';
     }
 }

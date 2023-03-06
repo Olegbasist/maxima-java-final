@@ -59,21 +59,45 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		System.out.println("");
 		System.out.println("All available tickets: ");
 		System.out.println(ticketService.findAll().size());
+		System.out.println();
 
-		System.out.println("");
-		//new TestEntitiesMaker().makeTestCustomers(5);
-		customerService.save(new Customer("Posetitel","custom@mail.com"));
-		customerService.save(new Customer("Janny","Call me later +49 221 112 22 11"));
+		System.out.println("Let's assign some Guide to Excursion:");
+		Guide guide1L = guideService.findByID(1L);
+		Excursion excursion = excursionService.findById(2L);
+		excursionService.assignGuideToExcursion(guide1L, excursion);
+		Excursion excursion1L = excursionService.findById(1L);
+		excursionService.assignGuideToExcursion(guide1L, excursion1L);
+		Excursion excursion3L = excursionService.findById(3L);
+		excursionService.assignGuideToExcursion(guide1L, excursion3L);
+		excursionService.findAll().forEach(excursion1 -> System.out.println(excursion1.getGuide()));
+		System.out.println();
+
+		System.out.println("Let's find out what excursions guide " +guide1L.getName()+ " assigned:");
+		excursionService.findByGuide(guide1L.getId()).forEach(System.out::println);
+		System.out.println();
+
 		System.out.println("Our dear customers: ");
 		customerService.findAll().forEach(System.out::println);
-		System.out.println("");
+		System.out.println();
 
-		Customer customer1 = customerService.findById(1L);
+		String name = "tit";
+		System.out.println("Let's find out user by name :" + name);
+		customerService.findByNameContaining(name).forEach(customer -> System.out.println(customer));
+		System.out.println();
+
+		String gideName = "connor";
+		System.out.println("Let's find out Gide by name :" + gideName);
+		guideService.findByNameContaining(gideName).forEach(guide -> System.out.println(guide));
+		System.out.println();
+
+		/*Customer customer1 = customerService.findById(1L);
 		System.out.println("Check in customer " + customer1.getName());
 		bookingService.signUp(customer1, excursionService.findById(1L), 4);
 		System.out.println("Result:");
-		System.out.println();
 		customerService.findById(customer1.getId()).getTickets().forEach(System.out::println);
+		System.out.println("And now new way:");*/
+		//ticketService.findAllTicketsByCustomerAndExcursion(1L,1L).forEach(System.out::println);
+
 
 		System.out.println("");
 		//ticketService.deleteById(ticket.getId());
