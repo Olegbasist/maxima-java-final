@@ -28,6 +28,7 @@ public class ExcursionService {
     public List<Excursion> findByTitle (String title){
         return repository.findByTitleContainingIgnoreCase(title);
     }
+
     @Transactional (readOnly = true)
     public List<Excursion> findByGuide (long id) {
         return repository.findByGuide_Id(id);
