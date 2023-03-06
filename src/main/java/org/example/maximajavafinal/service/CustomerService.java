@@ -18,7 +18,7 @@ public class CustomerService {
     public List<Customer> findAll () {return repository.findAll();}
 
     @Transactional(readOnly = true)
-    public Customer findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
+    public Customer findById (Long id) {return repository.findById(id).orElse(null);}
 
     @Transactional (readOnly = true)
     public List<Customer> findByNameContaining (String name) {

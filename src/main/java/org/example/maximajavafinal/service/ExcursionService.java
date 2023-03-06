@@ -21,7 +21,8 @@ public class ExcursionService {
     }
 
     @Transactional (readOnly = true)
-    public Excursion findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
+    public Excursion findById (Long id) {
+        return repository.findById(id).orElse(null);}
 
     @Transactional (readOnly = true)
     public List<Excursion> findByTitle (String title){

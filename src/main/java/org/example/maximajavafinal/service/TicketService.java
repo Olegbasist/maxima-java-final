@@ -20,7 +20,8 @@ public class TicketService {
     }
 
     @Transactional(readOnly = true)
-    public Ticket findById (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
+    public Ticket findById (Long id) {
+        return repository.findById(id).orElse(null);}
 
     public List<Ticket> findAllTicketsByCustomerAndExcursion (long customerId, long excursionId) {
         return repository.findByCustomer_IdAndExcursion_Id(customerId, excursionId);

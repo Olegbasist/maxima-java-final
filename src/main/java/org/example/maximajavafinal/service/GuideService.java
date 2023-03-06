@@ -22,7 +22,8 @@ public class GuideService {
     }
 
     @Transactional (readOnly = true)
-    public Guide findByID (Long id) {return repository.findById(id).isPresent() ? repository.findById(id).get() : null;}
+    public Guide findByID (Long id) {
+        return repository.findById(id).orElse(null);}
 
     @Transactional (readOnly = true)
     public List<Guide> findByNameContaining (String name) {
