@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @Controller
-//@RestController //Приводит к ошибке Multiple representations of the same entity [org.example.maximajavafinal.model.Excursion#1]
+@RestController //Приводит к ошибке Multiple representations of the same entity [org.example.maximajavafinal.model.Excursion#1]
 @RequestMapping("/")
 public class GuideController {
 

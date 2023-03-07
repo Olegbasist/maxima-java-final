@@ -69,7 +69,7 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		excursionService.assignGuideToExcursion(guide1L, excursion1L);
 		Excursion excursion3L = excursionService.findById(3L);
 		excursionService.assignGuideToExcursion(guide1L, excursion3L);
-		//excursionService.findAll().forEach(excursion1 -> System.out.println(excursion1.getGuide()));
+		excursionService.findAll().forEach(excursion1 -> System.out.println(excursion1.getGuide()));
 		System.out.println();
 
 		System.out.println("Let's find out what excursions guide " +guide1L.getName()+ " assigned:");
@@ -95,8 +95,8 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		bookingService.signUp(customerService.findById(1L), excursionService.findById(1L), 4);
 		System.out.println("Result:");
 		customerService.findById(1L).getTickets().forEach(System.out::println);
-		//System.out.println("And now new way:");
-		//ticketService.findAllTicketsByCustomerAndExcursion(1L,1L).forEach(System.out::println);
+		System.out.println("And now new way:");
+		ticketService.findAllTicketsByCustomerAndExcursion(1L,1L).forEach(System.out::println);
 
 
 		System.out.println("");
