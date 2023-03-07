@@ -17,7 +17,7 @@ public class GuideController {
     private GuideService guideService;
 
     @GetMapping("/all_guids")
-    public List<Guide> findAll (){
+    public List<Guide> findAllGuids (){
         return guideService.findAll();
     }
     //Пока что An error occurred while fetching the resource: AbortError: The operation was aborted.

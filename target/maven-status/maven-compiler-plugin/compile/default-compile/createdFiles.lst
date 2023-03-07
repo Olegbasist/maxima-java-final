@@ -15,3 +15,4 @@ org\example\maximajavafinal\TestEntitiesMaker.class
 org\example\maximajavafinal\service\TicketService.class
 org\example\maximajavafinal\repository\ExcursionRepository.class
 org\example\maximajavafinal\service\BookingService.class
+org\example\maximajavafinal\controller\CustomerController.class
