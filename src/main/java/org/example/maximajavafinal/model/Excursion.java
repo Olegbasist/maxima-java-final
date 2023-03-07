@@ -22,10 +22,10 @@ public class Excursion {
     private int capacity;
 
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.MERGE)
     private Guide guide;
 
-    @OneToMany (mappedBy = "excursion", fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany (cascade = CascadeType.MERGE, mappedBy = "excursion", fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Ticket> tickets;
 
     private boolean available = true;

@@ -14,7 +14,7 @@ public class Customer {
 
     private String contacts;
 
-    @OneToMany (cascade = CascadeType.MERGE, mappedBy = "customer", fetch = FetchType.EAGER)
+    @OneToMany (mappedBy = "customer", fetch = FetchType.EAGER)
     private List<Ticket> tickets;
 
     public Long getId() {
