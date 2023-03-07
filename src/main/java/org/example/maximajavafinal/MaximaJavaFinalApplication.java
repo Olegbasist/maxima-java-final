@@ -28,6 +28,9 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 	@Autowired
 	BookingService bookingService;
 
+	@Autowired
+	ExhibitionService exhibitionService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(MaximaJavaFinalApplication.class, args);
 	}
@@ -106,6 +109,7 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		System.out.println(ticketService.findAll().size());
 		//excursionService.findAll().forEach(excursion -> System.out.println(excursion.getId() + " " + excursion.getTickets().size()));
 
+		exhibitionService.save(new Exhibition("Vistavka"));
 	}
 
 
