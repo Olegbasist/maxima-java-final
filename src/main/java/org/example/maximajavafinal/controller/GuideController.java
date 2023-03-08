@@ -1,6 +1,5 @@
 package org.example.maximajavafinal.controller;
 
-import jakarta.persistence.PostUpdate;
 import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.service.GuideService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +14,13 @@ import java.util.List;
 public class GuideController {
 
     @Autowired
-    private GuideService guideService;
+    private GuideService service;
 
     @GetMapping
     public String root () {
         return ("Available requests:"
-                + "{all_guids}"
-                + "{}"
+                + "GET:{all_guids}, "
+                + "GET:{id}, "
                 + "{}"
                 + "{}"
                 + "{}");
@@ -29,13 +28,13 @@ public class GuideController {
     
     @GetMapping("/all_guids")
     public List<Guide> findAllGuids (){
-        return guideService.findAll();
+        return service.findAll();
     }
     //Ошибка: An error occurred while fetching the resource: AbortError: The operation was aborted.
     //Ушла после аннотирования tickets в Excursion аннотацией @JsonIgnore
     @GetMapping("/{id}")
     public Guide getGuid (@PathVariable Long id) {
-        return guideService.findByID(id);
+        return service.findByID(id);
     }
 
 }
