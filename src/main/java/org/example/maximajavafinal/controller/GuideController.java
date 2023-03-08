@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/guid")
+@RequestMapping("/guide")
 public class GuideController {
 
     @Autowired
@@ -20,11 +20,10 @@ public class GuideController {
     @GetMapping
     public String root () {
         return ("Available requests: "
-                + "GET:{all_guids}, "
-                + "GET:{id}, "
-                + "{}"
-                + "{}"
-                + "{}");
+                + "GET: {/all_guids}, "
+                + "GET: {/{id}}, "
+                + "GET: {/name/{string}}, "
+                );
     }
     
     @GetMapping("/all_guids")
@@ -38,4 +37,8 @@ public class GuideController {
         return ResponseEntity.ok(service.findByID(id));
     }
 
+    @GetMapping("/name/{string}")
+    public List<Guide> findGuideByName (@PathVariable String string) {
+        return service.findByNameContaining(string);
+    }
 }
