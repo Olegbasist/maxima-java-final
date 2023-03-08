@@ -23,7 +23,7 @@ public class CustomerController {
 
     @GetMapping
     public String root () {
-        return ("Available requests:"
+        return ("Available requests: "
                 +"GET:{all_customers}, "
                 +"GET:{id}, "
                 +"{}"

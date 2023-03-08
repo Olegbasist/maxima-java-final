@@ -18,7 +18,7 @@ public class GuideController {
 
     @GetMapping
     public String root () {
-        return ("Available requests:"
+        return ("Available requests: "
                 + "GET:{all_guids}, "
                 + "GET:{id}, "
                 + "{}"
