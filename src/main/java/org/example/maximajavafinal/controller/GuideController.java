@@ -3,6 +3,7 @@ package org.example.maximajavafinal.controller;
 import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.service.GuideService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,8 +34,8 @@ public class GuideController {
     //Ошибка: An error occurred while fetching the resource: AbortError: The operation was aborted.
     //Ушла после аннотирования tickets в Excursion аннотацией @JsonIgnore
     @GetMapping("/{id}")
-    public Guide getGuid (@PathVariable Long id) {
-        return service.findByID(id);
+    public ResponseEntity<Guide> getGuid (@PathVariable Long id) {
+        return ResponseEntity.ok(service.findByID(id));
     }
 
 }
