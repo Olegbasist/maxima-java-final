@@ -22,7 +22,7 @@ public class Excursion {
     private int capacity;
 
 
-    @ManyToOne (cascade = CascadeType.MERGE)
+    @ManyToOne //(cascade = CascadeType.MERGE)
     private Guide guide;
 
     @OneToMany (cascade = CascadeType.MERGE, mappedBy = "excursion", fetch = FetchType.EAGER, orphanRemoval = true)

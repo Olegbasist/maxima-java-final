@@ -1,5 +1,9 @@
+C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\ExhibitionController.java
+C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\ExhibitionRepository.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\MaximaJavaFinalApplication.java
+C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\ExhibitionService.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\BookingService.java
+C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Exhibition.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\GuideRepository.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Customer.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\GuideService.java
@@ -13,5 +17,6 @@ C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\m
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\ServletInitializer.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\CustomerRepository.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\CustomerService.java
+C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\CustomerController.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Guide.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\ExcursionRepository.java
