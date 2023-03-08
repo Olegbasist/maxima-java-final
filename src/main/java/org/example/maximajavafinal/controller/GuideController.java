@@ -20,5 +20,7 @@ public class GuideController {
     public List<Guide> findAllGuids (){
         return guideService.findAll();
     }
-    //Пока что An error occurred while fetching the resource: AbortError: The operation was aborted.
+    //Ошибка: An error occurred while fetching the resource: AbortError: The operation was aborted.
+    //Ушла после аннотирования tickets в Excursion аннотацией @JsonIgnore
+
 }
