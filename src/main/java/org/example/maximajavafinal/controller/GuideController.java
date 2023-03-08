@@ -4,10 +4,8 @@ import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.service.GuideService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -23,11 +21,12 @@ public class GuideController {
                 + "GET: {/all_guids}, "
                 + "GET: {/{id}}, "
                 + "GET: {/name/{string}}, "
+                + "POST: {/name}, RequestBody={name}}"
                 );
     }
     
     @GetMapping("/all_guids")
-    public List<Guide> findAllGuids (){
+    public List<Guide> getAllGuids (){
         return service.findAll();
     }
     //Ошибка: An error occurred while fetching the resource: AbortError: The operation was aborted.
@@ -37,8 +36,12 @@ public class GuideController {
         return ResponseEntity.ok(service.findByID(id));
     }
 
-    @GetMapping("/name/{string}")
-    public List<Guide> findGuideByName (@PathVariable String string) {
-        return service.findByNameContaining(string);
+    @GetMapping("/name/{name}")
+    public List<Guide> getGuideByName (@PathVariable String name) {
+        return service.findByNameContaining(name);
+    }
+    @PostMapping("/name")
+    public List<Guide> findGuideByName (@RequestBody String name) {
+        return service.findByNameContaining(name);
     }
 }
