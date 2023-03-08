@@ -1,5 +1,6 @@
 package org.example.maximajavafinal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class Customer {
     private String contacts;
 
     @OneToMany (mappedBy = "customer", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Ticket> tickets;
 
     public Long getId() {
