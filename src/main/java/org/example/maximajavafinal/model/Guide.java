@@ -40,9 +40,6 @@ public class Guide {
         this.excursions = excursions;
     }
 
-    public Guide(String name) {
-        this.name = name;
-    }
 
     public boolean isAvailable() {
         return available;
@@ -53,6 +50,9 @@ public class Guide {
     }
 
     public Guide() {
+    }
+    public Guide(String name) {
+        this.name = name;
     }
 
     @Override

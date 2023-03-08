@@ -3,6 +3,7 @@ package org.example.maximajavafinal.controller;
 import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.service.GuideService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,8 @@ public class GuideController {
                 + "GET: {/all_guids}, "
                 + "GET: {/{id}}, "
                 + "GET: {/name/{string}}, "
-                + "POST: {/name}, RequestBody={name}}"
+                + "POST: {/name}, RequestBody={name}}, "
+                + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
                 );
     }
     
@@ -41,7 +43,13 @@ public class GuideController {
         return service.findByNameContaining(name);
     }
     @PostMapping("/name")
-    public List<Guide> findGuideByName (@RequestBody String name) {
-        return service.findByNameContaining(name);
+    public ResponseEntity<List<Guide>> findGuideByName (@RequestBody String name) {
+        return ResponseEntity.ok(service.findByNameContaining(name));
+    }
+
+    @PostMapping("/new")
+    public ResponseEntity<Guide> addGuide (@RequestBody Guide guide) {
+        service.save(guide);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
