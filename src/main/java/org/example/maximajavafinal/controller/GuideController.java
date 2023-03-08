@@ -15,7 +15,7 @@ public class GuideController {
     @Autowired
     private GuideService guideService;
 
-    @GetMapping("/")
+    @GetMapping
     public String root () {
         return ("Available requests:"
                 + "{all_guids}"

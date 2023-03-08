@@ -1,5 +1,6 @@
 org\example\maximajavafinal\service\GuideService.class
 org\example\maximajavafinal\ServletInitializer.class
+org\example\maximajavafinal\controller\ExcursionController.class
 org\example\maximajavafinal\repository\GuideRepository.class
 org\example\maximajavafinal\repository\CustomerRepository.class
 org\example\maximajavafinal\model\Ticket.class

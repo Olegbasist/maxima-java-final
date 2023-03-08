@@ -16,16 +16,16 @@ public class ExcursionController {
     @Autowired
     private ExcursionService excursionService;
 
-    @GetMapping("/")
+    @GetMapping
     public String root () {
-        return ("Available requests:"
-                + "{all_excursions}"
+        return ("Available requests: "
+                + "GET:{all_excursions}, "
                 + "{}"
                 + "{}"
                 + "{}"
                 + "{}");
     }
-    @GetMapping("all_excursions")
+    @GetMapping("/all_excursions")
     public List<Excursion> findAll(){
         return excursionService.findAll();
     }

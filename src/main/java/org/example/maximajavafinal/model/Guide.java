@@ -1,5 +1,6 @@
 package org.example.maximajavafinal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class Guide {
 
 
     @OneToMany (mappedBy = "guide", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Excursion> excursions;
 
     private boolean available = true;
