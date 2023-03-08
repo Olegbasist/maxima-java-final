@@ -21,7 +21,7 @@ public class TicketController {
         return ("Available requests: "
                 + "GET:{all_tickets}, "
                 + "GET:{id}, "
-                + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, ");
+                + "POST: {/new}, Content-Type={application/json}, RequestBody={price=price}}, ");
     }
 
     @GetMapping("all_tickets")
@@ -29,9 +29,10 @@ public class TicketController {
         return service.findAll();
     }
 
+
     @GetMapping("/{id}")
-    public Ticket getTicket (@PathVariable Long id) {
-        return service.findById(id);
+    public ResponseEntity<Ticket> getTicket (@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping("/new")

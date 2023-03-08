@@ -21,7 +21,7 @@ public class ExcursionController {
         return ("Available requests: "
                 + "GET:{all_excursions}, "
                 + "GET:{id}"
-                + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
+                + "POST: {/new}, Content-Type={application/json}, RequestBody={title=title}}, "
         );
     }
     @GetMapping("/all_excursions")
@@ -29,9 +29,10 @@ public class ExcursionController {
         return service.findAll();
     }
 
+
     @GetMapping("/{id}")
-    public Excursion getTicket (@PathVariable Long id) {
-        return service.findById(id);
+    public ResponseEntity<Excursion> getExcursion (@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping("/new")

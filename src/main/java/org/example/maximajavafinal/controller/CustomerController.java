@@ -1,6 +1,8 @@
 package org.example.maximajavafinal.controller;
 
 import org.example.maximajavafinal.model.Customer;
+import org.example.maximajavafinal.model.Guide;
+import org.example.maximajavafinal.model.Ticket;
 import org.example.maximajavafinal.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,10 +35,11 @@ public class CustomerController {
     public List<Customer> findAllCustomers () {
         return service.findAll();
     }
+    
 
     @GetMapping("/{id}")
-    public Customer getTicket (@PathVariable Long id) {
-        return service.findById(id);
+    public ResponseEntity<Customer> getCustomer (@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping("/new")
