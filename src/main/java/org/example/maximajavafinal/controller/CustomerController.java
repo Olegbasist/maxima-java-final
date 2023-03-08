@@ -4,6 +4,7 @@ import org.example.maximajavafinal.model.Customer;
 import org.example.maximajavafinal.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,17 +15,17 @@ import java.util.List;
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+    private CustomerService service;
 
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
+    public CustomerController(CustomerService service) {
+        this.service = service;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String root () {
         return ("Available requests:"
-                +"{all_customers}"
-                +"{}"
+                +"GET:{all_customers}, "
+                +"GET:{id}, "
                 +"{}"
                 +"{}"
                 +"{}");
@@ -32,6 +33,11 @@ public class CustomerController {
 
     @GetMapping ("/all_customers")
     public List<Customer> findAllCustomers () {
-        return customerService.findAll();
+        return service.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Customer getTicket (@PathVariable Long id) {
+        return service.findById(id);
     }
 }
