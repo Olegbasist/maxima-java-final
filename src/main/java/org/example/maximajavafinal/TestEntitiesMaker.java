@@ -34,12 +34,12 @@ public class TestEntitiesMaker {
     }
 
     @PostConstruct
-    private void autoMakTestEntities () {
+    private void autoMakeTestEntities () {
         makeTestGuides(guideService);
         makeTestExcursions(5);
         makeTestCustomer(customerService);
     }
-    public void makeTestGuides (GuideService guideService) {
+    private void makeTestGuides (GuideService guideService) {
         System.out.println("");
         System.out.print("Creating guides ... ");
         guideService.save(new Guide("Kyle Reese"));
@@ -57,7 +57,7 @@ public class TestEntitiesMaker {
 
 
     }
-    public void makeTestExcursions (int quantity) {
+    private void makeTestExcursions (int quantity) {
 
         System.out.println("Creating excursions and tickets ... ");
         int guidesCount = guideService.findAll().size()+1;
@@ -85,7 +85,7 @@ public class TestEntitiesMaker {
         System.out.println("////////////////////////////////////////////////");*/
     }
 
-    public void makeTestCustomer (CustomerService customerService) {
+    private void makeTestCustomer (CustomerService customerService) {
         customerService.save(new Customer("Posetitel","custom@mail.com"));
         customerService.save(new Customer("Posetitel2","custom2@mail.com"));
         customerService.save(new Customer("Posetitel3","custom3@mail.com"));
