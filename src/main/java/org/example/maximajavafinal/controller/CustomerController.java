@@ -1,8 +1,6 @@
 package org.example.maximajavafinal.controller;
 
 import org.example.maximajavafinal.model.Customer;
-import org.example.maximajavafinal.model.Guide;
-import org.example.maximajavafinal.model.Ticket;
 import org.example.maximajavafinal.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +26,7 @@ public class CustomerController {
                 + "GET:{all_customers}, "
                 + "GET:{id}, "
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
+                + "POST: {/delete/{id}}"
         );
     }
 
@@ -35,7 +34,7 @@ public class CustomerController {
     public List<Customer> findAllCustomers () {
         return service.findAll();
     }
-    
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomer (@PathVariable Long id) {
@@ -46,5 +45,9 @@ public class CustomerController {
     public ResponseEntity<Customer> addGuide (@RequestBody Customer customer) {
         service.save(customer);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    @GetMapping("/delete/{id}")
+    public void deleteCustomer (@PathVariable Long id) {
+        service.deleteById(id);
     }
 }

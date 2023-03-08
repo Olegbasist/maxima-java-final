@@ -22,6 +22,7 @@ public class ExcursionController {
                 + "GET:{all_excursions}, "
                 + "GET:{id}"
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={title=title}}, "
+                + "POST: {/delete/{id}}"
         );
     }
     @GetMapping("/all_excursions")
@@ -39,5 +40,9 @@ public class ExcursionController {
     public ResponseEntity<Excursion> addGuide (@RequestBody Excursion excursion) {
         service.save(excursion);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    @GetMapping("/delete/{id}")
+    public void deleteExcursion (@PathVariable Long id) {
+        service.deleteById(id);
     }
 }

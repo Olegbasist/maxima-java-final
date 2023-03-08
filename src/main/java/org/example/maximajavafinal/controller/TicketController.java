@@ -21,7 +21,9 @@ public class TicketController {
         return ("Available requests: "
                 + "GET:{all_tickets}, "
                 + "GET:{id}, "
-                + "POST: {/new}, Content-Type={application/json}, RequestBody={price=price}}, ");
+                + "POST: {/new}, Content-Type={application/json}, RequestBody={price=price}}, "
+                + "POST: {/delete/{id}}" +
+                "");
     }
 
     @GetMapping("all_tickets")
@@ -40,4 +42,7 @@ public class TicketController {
         service.save(ticket);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+    @GetMapping("/delete/{id}")
+    public void deleteTicket (@PathVariable Long id) {
+        service.deleteById(id);}
 }

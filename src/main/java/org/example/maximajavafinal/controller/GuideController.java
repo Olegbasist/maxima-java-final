@@ -24,6 +24,7 @@ public class GuideController {
                 + "GET: {/name/{string}}, "
                 + "POST: {/name}, RequestBody={name}}, "
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
+                + "POST: {/delete/{id}}"
                 );
     }
     
@@ -52,4 +53,7 @@ public class GuideController {
         service.save(guide);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+    @GetMapping("/delete/{id}")
+    public void deleteGuide (@PathVariable Long id) {
+        service.deleteById(id);}
 }
