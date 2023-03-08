@@ -15,6 +15,16 @@ public class GuideController {
     @Autowired
     private GuideService guideService;
 
+    @GetMapping("/")
+    public String root () {
+        return ("Available requests:"
+                + "{all_guids}"
+                + "{}"
+                + "{}"
+                + "{}"
+                + "{}");
+    }
+    
     @GetMapping("/all_guids")
     public List<Guide> findAllGuids (){
         return guideService.findAll();
