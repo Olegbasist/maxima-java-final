@@ -3,10 +3,9 @@ package org.example.maximajavafinal.controller;
 import org.example.maximajavafinal.model.Customer;
 import org.example.maximajavafinal.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,11 +23,10 @@ public class CustomerController {
     @GetMapping
     public String root () {
         return ("Available requests: "
-                +"GET:{all_customers}, "
-                +"GET:{id}, "
-                +"{}"
-                +"{}"
-                +"{}");
+                + "GET:{all_customers}, "
+                + "GET:{id}, "
+                + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
+        );
     }
 
     @GetMapping ("/all_customers")
@@ -39,5 +37,11 @@ public class CustomerController {
     @GetMapping("/{id}")
     public Customer getTicket (@PathVariable Long id) {
         return service.findById(id);
+    }
+
+    @PostMapping("/new")
+    public ResponseEntity<Customer> addGuide (@RequestBody Customer customer) {
+        service.save(customer);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
