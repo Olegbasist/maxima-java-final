@@ -20,6 +20,16 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @GetMapping("/")
+    public String root () {
+        return ("Available requests:"
+                +"{all_customers}"
+                +"{}"
+                +"{}"
+                +"{}"
+                +"{}");
+    }
+
     @GetMapping ("/all_customers")
     public List<Customer> findAllCustomers () {
         return customerService.findAll();
