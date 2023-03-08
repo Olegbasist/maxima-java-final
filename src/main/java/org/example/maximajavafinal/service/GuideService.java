@@ -1,5 +1,6 @@
 package org.example.maximajavafinal.service;
 
+import org.example.maximajavafinal.exception.GuideNotFoundException;
 import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.repository.GuideRepository;
@@ -23,7 +24,7 @@ public class GuideService {
 
     @Transactional (readOnly = true)
     public Guide findByID (Long id) {
-        return repository.findById(id).orElse(null);}
+        return repository.findById(id).orElseThrow(()-> new GuideNotFoundException(id.toString()));}
 
     @Transactional (readOnly = true)
     public List<Guide> findByNameContaining (String name) {

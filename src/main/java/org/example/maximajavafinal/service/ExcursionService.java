@@ -1,5 +1,6 @@
 package org.example.maximajavafinal.service;
 
+import org.example.maximajavafinal.exception.ExcursionNotFoundException;
 import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.repository.ExcursionRepository;
@@ -22,7 +23,7 @@ public class ExcursionService {
 
     @Transactional (readOnly = true)
     public Excursion findById (Long id) {
-        return repository.findById(id).orElse(null);}
+        return repository.findById(id).orElseThrow(()-> new ExcursionNotFoundException(id.toString()));}
 
     @Transactional (readOnly = true)
     public List<Excursion> findByTitle (String title){

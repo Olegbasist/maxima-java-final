@@ -1,4 +1,5 @@
 package org.example.maximajavafinal.service;
+import org.example.maximajavafinal.exception.TicketNotFoundException;
 import org.example.maximajavafinal.model.Ticket;
 import org.example.maximajavafinal.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class TicketService {
 
     @Transactional(readOnly = true)
     public Ticket findById (Long id) {
-        return repository.findById(id).orElse(null);}
+        return repository.findById(id).orElseThrow(()-> new TicketNotFoundException(id.toString()));}
 
     public List<Ticket> findAllTicketsByCustomerAndExcursion (long customerId, long excursionId) {
         return repository.findByCustomer_IdAndExcursion_Id(customerId, excursionId);
