@@ -25,6 +25,7 @@ public class CustomerController {
         return ("Available requests: "
                 + "GET:{all_customers}, "
                 + "GET:{id}, "
+                + "GET: {/name/{string}}, "
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
                 + "POST: {/delete/{id}}"
         );
@@ -39,6 +40,16 @@ public class CustomerController {
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomer (@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
+    }
+    @GetMapping("/name/{name}")
+    public List<Customer> getCustomereByName (@PathVariable String name) {
+
+        return service.findByNameContaining(name);
+    }
+
+    @PostMapping("/name")
+    public ResponseEntity<List<Customer>> findCustomerByName (@RequestBody String name) {
+        return ResponseEntity.ok(service.findByNameContaining(name));
     }
 
     @PostMapping("/new")

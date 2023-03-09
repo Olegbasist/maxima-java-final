@@ -43,6 +43,7 @@ public class GuideController {
     public List<Guide> getGuideByName (@PathVariable String name) {
         return service.findByNameContaining(name);
     }
+
     @PostMapping("/name")
     public ResponseEntity<List<Guide>> findGuideByName (@RequestBody String name) {
         return ResponseEntity.ok(service.findByNameContaining(name));

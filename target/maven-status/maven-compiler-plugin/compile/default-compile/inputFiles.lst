@@ -1,22 +1,32 @@
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\ExhibitionController.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\ExhibitionRepository.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\MaximaJavaFinalApplication.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\ExhibitionService.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\BookingService.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Exhibition.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\GuideRepository.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Customer.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\GuideService.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\TicketService.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\TicketRepository.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\ExcursionService.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\GuideController.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\TestEntitiesMaker.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Excursion.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Ticket.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\ServletInitializer.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\CustomerRepository.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\CustomerService.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\CustomerController.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Guide.java
-C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\ExcursionRepository.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\advice\TicketNotFoundAdvice.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Customer.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\exception\TicketNotFoundException.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\advice\GuideNotFoundAdvice.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\TicketService.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\ExcursionController.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\advice\ExcursionNotFoundAdvice.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Guide.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\exception\ExcursionNotFoundException.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\TicketRepository.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\exception\GuideNotFoundException.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\ExhibitionService.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\ServletInitializer.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\GuideController.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\GuideService.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\TicketController.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Ticket.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\exception\CustomerNotFoundException.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\MaximaJavaFinalApplication.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Excursion.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\GuideRepository.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\TestEntitiesMaker.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\ExcursionRepository.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\BookingService.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\advice\CustomerNotFoundAdvice.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\CustomerController.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\ExcursionService.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\ExhibitionController.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Exhibition.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\CustomerRepository.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\ExhibitionRepository.java
+C:\Users\obarashev\OneDrive\Документы\Учебка\2022 Maxima (Java)\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\CustomerService.java

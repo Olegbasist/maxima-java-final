@@ -40,8 +40,8 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		System.out.println("////////////////////////////////////////////////");
 		System.out.println("Hallo! I'm Command Runner.");
 		System.out.println("");
-		System.out.println("This is our guides:");
-		guideService.findAll().forEach(System.out::println);
+		/*System.out.println("This is our guides:");
+		guideService.findAll().forEach(System.out::println);*/
 
 		/*System.out.println("Get excursions connected to guide:");
 		long i = 1;
@@ -53,7 +53,7 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 			i++;
 		}*/
 
-		System.out.println("");
+		/*System.out.println("");
 		System.out.println("All available excursions: ");
 		excursionService.findAll().forEach(System.out::println);
 		System.out.println("");
@@ -109,7 +109,8 @@ public class MaximaJavaFinalApplication implements CommandLineRunner {
 		System.out.println(ticketService.findAll().size());
 		//excursionService.findAll().forEach(excursion -> System.out.println(excursion.getId() + " " + excursion.getTickets().size()));
 
-		exhibitionService.save(new Exhibition("Vistavka"));
+		exhibitionService.save(new Exhibition("Vistavka"));*/
+		//customerService.findByNameContaining("jan").forEach(System.out::println);
 	}
 
 
