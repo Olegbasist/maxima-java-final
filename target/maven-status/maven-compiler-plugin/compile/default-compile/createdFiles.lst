@@ -10,6 +10,7 @@ org\example\maximajavafinal\controller\TicketController.class
 org\example\maximajavafinal\service\CustomerService.class
 org\example\maximajavafinal\advice\CustomerNotFoundAdvice.class
 org\example\maximajavafinal\controller\GuideController.class
+org\example\maximajavafinal\controller\AssignController.class
 org\example\maximajavafinal\model\Exhibition.class
 org\example\maximajavafinal\advice\GuideNotFoundAdvice.class
 org\example\maximajavafinal\model\Customer.class

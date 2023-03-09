@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/guide")
+@RequestMapping("/guide/service")
 public class AssignController {
 
     @Autowired
@@ -25,21 +25,22 @@ public class AssignController {
     @GetMapping
     public String root () {
         return ("Available requests: "
-                + "POST: {/assign}, Content-Type={application/json}, RequestBody={guide_id=id},{excursion_id=id}}, "
-                + "POST: {/relive}, Content-Type={application/json}, RequestBody={excursion_id=id}}, "
+                + "POST: {/assign}, Content-Type={application/json}, RequestBody={id=id},{id=id}}, "
+                + "POST: {/relive}, Content-Type={application/json}, RequestBody={id=id}}, "
         );
     }
 
     @PostMapping("/assign")
-    public void assignGuideToExcursion (@RequestBody Long guide_id, Long excursion_id){
-        Excursion excursion = excursionService.findById(excursion_id);
-        Guide guide = guideService.findByID(guide_id);
-        excursionService.assignGuideToExcursion(guide,excursion);
+    public void assignGuideToExcursion (@RequestBody Guide guide, Excursion excursion){
+        System.out.println(guide);
+        //System.out.println(excursion);
+        Excursion excursionToAssign = excursionService.findById(excursion.getId());
+        Guide guideToAssign = guideService.findByID(guide.getId());
+        excursionService.assignGuideToExcursion(guideToAssign,excursionToAssign);
     }
 
     @PostMapping("/relive")
-    public void reliveGuideFromExcursion (@RequestBody Long excursion_id){
-        Excursion excursion = excursionService.findById(excursion_id);
-        excursionService.reliveGuideFromExcursion(excursion);
+    public void reliveGuideFromExcursion (@RequestBody Excursion excursion){
+        excursionService.reliveGuideFromExcursion(excursionService.findById(excursion.getId()));
     }
 }
