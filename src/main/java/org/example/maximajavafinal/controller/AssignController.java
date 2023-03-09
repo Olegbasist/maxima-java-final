@@ -1,14 +1,19 @@
 package org.example.maximajavafinal.controller;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.ResolvedType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.maximajavafinal.model.Assigner;
 import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Guide;
 import org.example.maximajavafinal.service.ExcursionService;
 import org.example.maximajavafinal.service.GuideService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,11 +36,9 @@ public class AssignController {
     }
 
     @PostMapping("/assign")
-    public void assignGuideToExcursion (@RequestBody Guide guide, Excursion excursion){
-        System.out.println(guide);
-        //System.out.println(excursion);
-        Excursion excursionToAssign = excursionService.findById(excursion.getId());
-        Guide guideToAssign = guideService.findByID(guide.getId());
+    public void assignGuideToExcursion (@RequestBody Assigner assigner) {
+        Excursion excursionToAssign = excursionService.findById(assigner.getExcursion_id());
+        Guide guideToAssign = guideService.findByID(assigner.getGuide_id());
         excursionService.assignGuideToExcursion(guideToAssign,excursionToAssign);
     }
 

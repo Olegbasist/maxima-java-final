@@ -51,7 +51,6 @@ public class Guide {
 
     public Guide() {
     }
-
     public Guide(String name) {
         this.name = name;
     }
