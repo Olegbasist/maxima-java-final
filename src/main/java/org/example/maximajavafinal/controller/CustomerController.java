@@ -28,7 +28,7 @@ public class CustomerController {
                 + "GET:{id}, "
                 + "GET: {/name/{string}}, "
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
-                + "POST: {/delete/{id}}, "
+                + "DELETE: {/delete/{id}}, "
                 + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}}, \""
         );
     }
@@ -49,17 +49,12 @@ public class CustomerController {
         return service.findByNameContaining(name);
     }
 
-    @PostMapping("/name")
-    public ResponseEntity<List<Customer>> findCustomerByName (@RequestBody String name) {
-        return ResponseEntity.ok(service.findByNameContaining(name));
-    }
-
     @PostMapping("/new")
     public ResponseEntity<Customer> addGuide (@RequestBody Customer customer) {
         service.save(customer);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteCustomer (@PathVariable Long id) {
         service.deleteById(id);
     }
