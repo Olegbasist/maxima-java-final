@@ -50,7 +50,6 @@ public class ExcursionController {
 
     @DeleteMapping("/delete/all")
     public void deleteAllExcursions (@RequestBody String confirm) {
-        System.out.println(confirm);
         if (Objects.equals(confirm, "{\"confirm\":\"DELETE\"}")){
             service.deleteAll();}
     }

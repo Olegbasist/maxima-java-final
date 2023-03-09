@@ -61,7 +61,6 @@ public class CustomerController {
 
     @DeleteMapping("/delete/all")
     public void deleteAllCustomers (@RequestBody String confirm) {
-        System.out.println(confirm);
         if (Objects.equals(confirm, "{\"confirm\":\"DELETE\"}")){
         service.deleteAll();}
     }

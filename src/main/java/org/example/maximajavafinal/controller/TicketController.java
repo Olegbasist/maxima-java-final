@@ -50,7 +50,6 @@ public class TicketController {
 
     @DeleteMapping("/delete/all")
     public void deleteAllTickets (@RequestBody String confirm) {
-        System.out.println(confirm);
         if (Objects.equals(confirm, "{\"confirm\":\"DELETE\"}")){
             service.deleteAll();}
     }

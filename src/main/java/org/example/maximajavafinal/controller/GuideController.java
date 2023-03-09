@@ -57,7 +57,6 @@ public class GuideController {
 
     @DeleteMapping("/delete/all")
     public void deleteAllGuids (@RequestBody String confirm) {
-        System.out.println(confirm);
         if (Objects.equals(confirm, "{\"confirm\":\"DELETE\"}")){
             service.deleteAll();}
     }
