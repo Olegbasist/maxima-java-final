@@ -6,6 +6,8 @@ import org.example.maximajavafinal.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookingService {
     @Autowired
@@ -39,6 +41,15 @@ public class BookingService {
 
     }
     public void signOut (Customer customer, Excursion excursion, int quantity) {
-        System.out.println("Not available for now. Query under construction.");
+        List<Ticket> ticketList = ticketService.findTicketsByCustomerAndExcursion(customer, excursion);
+        ticketList.forEach(System.out::println);
+        int availableTicketsQuantity = ticketList.size();
+        long ticketId = ticketList.get(0).getId();
+        while (quantity>0 && availableTicketsQuantity>0) {
+            ticketService.deleteById(ticketId);
+            quantity--;
+            availableTicketsQuantity--;
+            ticketId++;
+        }
     }
 }

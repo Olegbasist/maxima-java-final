@@ -13,7 +13,7 @@ public class Ticket {
 
     private int price;
 
-    @ManyToOne (cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @ManyToOne (fetch = FetchType.EAGER) //cascade = CascadeType.REMOVE,
     private Excursion excursion;
 
     @ManyToOne (cascade = CascadeType.MERGE)

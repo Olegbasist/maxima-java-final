@@ -40,6 +40,6 @@ public class BookingController {
         Customer customer = customerService.findById(mediator.getCustomer_id());
         Excursion excursion = excursionService.findById(mediator.getExcursion_id());
         int quantity = mediator.getQuantity();
-        bookingService.signUp(customer, excursion, quantity);
+        bookingService.signOut(customer, excursion, quantity);
     }
 }
