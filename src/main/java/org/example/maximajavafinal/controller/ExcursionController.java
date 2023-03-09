@@ -24,7 +24,7 @@ public class ExcursionController {
                 + "GET:{id}"
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={title=title}}, "
                 + "DELETE: {/delete/{id}}, "
-                + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}}, "
+                + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}, ALSO WIPES TICKETS!}, "
         );
     }
     @GetMapping("/all_excursions")
