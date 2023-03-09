@@ -5,6 +5,7 @@ public class Mediator {
     long excursion_id;
     long customer_id;
     long ticket_id;
+    int quantity;
 
 
     public long getExcursion_id() {
@@ -39,6 +40,13 @@ public class Mediator {
         this.guide_id = guide_id;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     public Mediator() {
     }
