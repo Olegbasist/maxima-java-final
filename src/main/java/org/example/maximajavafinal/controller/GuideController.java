@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/guide")
@@ -22,9 +23,9 @@ public class GuideController {
                 + "GET: {/all_guids}, "
                 + "GET: {/{id}}, "
                 + "GET: {/name/{string}}, "
-                + "POST: {/name}, RequestBody={name}}, "
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
-                + "POST: {/delete/{id}}"
+                + "DELETE: {/delete/{id}}, "
+                + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}}, "
                 );
     }
     
@@ -44,17 +45,20 @@ public class GuideController {
         return service.findByNameContaining(name);
     }
 
-    @PostMapping("/name")
-    public ResponseEntity<List<Guide>> findGuideByName (@RequestBody String name) {
-        return ResponseEntity.ok(service.findByNameContaining(name));
-    }
 
     @PostMapping("/new")
     public ResponseEntity<Guide> addGuide (@RequestBody Guide guide) {
         service.save(guide);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteGuide (@PathVariable Long id) {
         service.deleteById(id);}
+
+    @DeleteMapping("/delete/all")
+    public void deleteAllGuids (@RequestBody String confirm) {
+        System.out.println(confirm);
+        if (Objects.equals(confirm, "{\"confirm\":\"DELETE\"}")){
+            service.deleteAll();}
+    }
 }

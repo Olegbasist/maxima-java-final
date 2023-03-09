@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("ticket")
@@ -22,8 +23,9 @@ public class TicketController {
                 + "GET:{all_tickets}, "
                 + "GET:{id}, "
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={price=price}}, "
-                + "POST: {/delete/{id}}" +
-                "");
+                + "DELETE: {/delete/{id}}, "
+                + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}}, "
+                );
     }
 
     @GetMapping("all_tickets")
@@ -42,7 +44,14 @@ public class TicketController {
         service.save(ticket);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteTicket (@PathVariable Long id) {
         service.deleteById(id);}
+
+    @DeleteMapping("/delete/all")
+    public void deleteAllTickets (@RequestBody String confirm) {
+        System.out.println(confirm);
+        if (Objects.equals(confirm, "{\"confirm\":\"DELETE\"}")){
+            service.deleteAll();}
+    }
 }

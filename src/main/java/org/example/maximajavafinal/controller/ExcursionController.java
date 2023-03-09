@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/excursion")
@@ -22,7 +23,8 @@ public class ExcursionController {
                 + "GET:{all_excursions}, "
                 + "GET:{id}"
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={title=title}}, "
-                + "POST: {/delete/{id}}"
+                + "DELETE: {/delete/{id}}, "
+                + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}}, "
         );
     }
     @GetMapping("/all_excursions")
@@ -41,8 +43,15 @@ public class ExcursionController {
         service.save(excursion);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteExcursion (@PathVariable Long id) {
         service.deleteById(id);
+    }
+
+    @DeleteMapping("/delete/all")
+    public void deleteAllExcursions (@RequestBody String confirm) {
+        System.out.println(confirm);
+        if (Objects.equals(confirm, "{\"confirm\":\"DELETE\"}")){
+            service.deleteAll();}
     }
 }

@@ -29,7 +29,7 @@ public class CustomerController {
                 + "GET: {/name/{string}}, "
                 + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
                 + "DELETE: {/delete/{id}}, "
-                + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}}, \""
+                + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}}, "
         );
     }
 
