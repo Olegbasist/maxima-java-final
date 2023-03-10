@@ -1,5 +1,8 @@
 package org.example.maximajavafinal.model;
 
-public class UserAccount {
+import jakarta.persistence.Entity;
+
+@Entity
+public class UserAccount implements UserDetails {
     
 }
