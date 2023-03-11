@@ -152,7 +152,7 @@ public class CustomerController {
         return ResponseEntity.ok(service.findById(id));
     }
     @GetMapping("/name/{name}")
-    public List<Customer> getCustomereByName (@PathVariable String name) {
+    public List<Customer> getCustomerByName (@PathVariable String name) {
 
         return service.findByNameContaining(name);
     }
@@ -162,6 +162,16 @@ public class CustomerController {
         service.save(customer);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @PatchMapping ("/update")
+    public ResponseEntity<Customer> updateGuide (@RequestBody Customer updatedCustomer) {
+        Customer customerForUpdate = service.findById(updatedCustomer.getId());
+        if (updatedCustomer.getName() != null)  {customerForUpdate.setName(updatedCustomer.getName());}
+        if (updatedCustomer.getContacts() != null){customerForUpdate.setContacts(updatedCustomer.getContacts());}
+        service.save(customerForUpdate);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @DeleteMapping("/delete/{id}")
     public void deleteCustomer (@PathVariable Long id) {
         service.deleteById(id);

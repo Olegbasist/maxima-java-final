@@ -97,6 +97,7 @@ public class TestEntitiesMaker {
         System.out.println("Creating some customers ...");
         while (quantity>0){
             customerService.save(new Customer("Name","Phone: +486874955574"));
+            quantity--;
         }
     }
 }
