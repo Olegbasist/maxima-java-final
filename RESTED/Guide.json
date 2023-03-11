@@ -6,6 +6,104 @@
     "entries": [
       {
         "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/guide",
+          "headers": [
+            {
+              "name": "",
+              "value": ""
+            }
+          ],
+          "postData": {}
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/guide/all_guids",
+          "headers": [
+            {
+              "name": "",
+              "value": ""
+            }
+          ],
+          "postData": {}
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/guide/1",
+          "headers": [],
+          "postData": {
+            "mimeType": "",
+            "params": [],
+            "text": "id=5&id=1"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/guide/name/con",
+          "headers": [],
+          "postData": {
+            "mimeType": "",
+            "params": [],
+            "text": "id=5&id=1"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/guide/new",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "application/x-www-form-urlencoded",
+            "params": [
+              {
+                "name": "name",
+                "value": "Terminator T1000"
+              }
+            ],
+            "text": "name=Terminator T1000"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "PATCH",
+          "url": "http://localhost:8080/guide/update",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "application/x-www-form-urlencoded",
+            "params": [
+              {
+                "name": "id",
+                "value": "1"
+              },
+              {
+                "name": "name",
+                "value": "Terminated"
+              }
+            ],
+            "text": "id=1&name=Terminated"
+          }
+        }
+      },
+      {
+        "request": {
           "method": "POST",
           "url": "http://localhost:8080/guide/service/assign",
           "headers": [
@@ -18,15 +116,15 @@
             "mimeType": "application/x-www-form-urlencoded",
             "params": [
               {
-                "name": "id",
-                "value": "5"
+                "name": "guide_id",
+                "value": "1"
               },
               {
-                "value": "1",
-                "name": "id"
+                "name": "excursion_id",
+                "value": "5"
               }
             ],
-            "text": "id=5&id=1"
+            "text": "guide_id=1&excursion_id=5"
           }
         }
       },
@@ -44,11 +142,28 @@
             "mimeType": "application/x-www-form-urlencoded",
             "params": [
               {
-                "name": "excursion_id",
-                "value": "1"
+                "name": "id",
+                "value": "5"
               }
             ],
-            "text": "excursion_id=1"
+            "text": "id=5"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:8080/guide/delete/1",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "",
+            "params": [],
+            "text": "confirm=DELETE"
           }
         }
       },
@@ -63,46 +178,9 @@
             }
           ],
           "postData": {
-            "mimeType": "application/x-www-form-urlencoded",
-            "params": [
-              {
-                "name": "confirm",
-                "value": "DELETE"
-              }
-            ],
+            "mimeType": "",
+            "params": [],
             "text": "confirm=DELETE"
-          }
-        }
-      },
-      {
-        "request": {
-          "method": "GET",
-          "url": "http://localhost:8080/guide",
-          "headers": [
-            {
-              "name": "",
-              "value": ""
-            }
-          ],
-          "postData": {
-            "mimeType": "",
-            "params": []
-          }
-        }
-      },
-      {
-        "request": {
-          "method": "GET",
-          "url": "http://localhost:8080/guide/all_guids",
-          "headers": [
-            {
-              "name": "",
-              "value": ""
-            }
-          ],
-          "postData": {
-            "mimeType": "",
-            "params": []
           }
         }
       }
