@@ -36,7 +36,25 @@ paths:
                       type: string
                     tickets:
                       type: array
-                    
+
+  /customer/{id}:
+    get:
+      responses:
+        "200":
+          description: search exact customer by his id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  name:
+                    type: string
+                  contacts:
+                    type: string
+                  tickets:
+                    type: array
 
 
   
