@@ -24,12 +24,120 @@ public class CustomerController {
     @GetMapping
     public String root () {
         return ("Available requests: "
-                + "GET:{all_customers}, "
-                + "GET:{id}, "
-                + "GET: {/name/{string}}, "
-                + "POST: {/new}, Content-Type={application/json}, RequestBody={name=name}}, "
-                + "DELETE: {/delete/{id}}, "
-                + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}}, "
+                + "[\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"GET\",\n" +
+                "          \"url\": \"http://localhost:8080/customer\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "         }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"GET\",\n" +
+                "          \"url\": \"http://localhost:8080/customer/all_customers\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "         }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"GET\",\n" +
+                "          \"url\": \"http://localhost:8080/customer/1\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "         }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"GET\",\n" +
+                "          \"url\": \"http://localhost:8080/customer/name/jan\",\n" +
+                "          \"headers\": [],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"\",\n" +
+                "            \"params\": [],\n" +
+                "            \"text\": \"name=jan\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"POST\",\n" +
+                "          \"url\": \"http://localhost:8080/customer/new\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"application/x-www-form-urlencoded\",\n" +
+                "            \"params\": [\n" +
+                "              {\n" +
+                "                \"name\": \"name\",\n" +
+                "                \"value\": \"Terminator T800\"\n" +
+                "              }\n" +
+                "            ],\n" +
+                "            \"text\": \"name=Terminator T800\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"DELETE\",\n" +
+                "          \"url\": \"http://localhost:8080/customer/delete/1\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"\",\n" +
+                "            \"params\": [],\n" +
+                "            \"text\": \"confirm=DELETE\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"DELETE\",\n" +
+                "          \"url\": \"http://localhost:8080/customer/delete/all\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"application/x-www-form-urlencoded\",\n" +
+                "            \"params\": [\n" +
+                "              {\n" +
+                "                \"name\": \"confirm\",\n" +
+                "                \"value\": \"DELETE\"\n" +
+                "              }\n" +
+                "            ],\n" +
+                "            \"text\": \"confirm=DELETE\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      }\n" +
+                "    ]"
         );
     }
 

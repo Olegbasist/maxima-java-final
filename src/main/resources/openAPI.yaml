@@ -10,6 +10,33 @@ paths:
     get:
       responses:
         "200":
+          description: URL and requests json schema
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /customer/all_customers:
+    get:
+      responses:
+        "200":
+          description: All customres list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    contacts:
+                      type: string
+                    tickets:
+                      type: array
+                    
 
 
   

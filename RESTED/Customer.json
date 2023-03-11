@@ -78,9 +78,14 @@
             }
           ],
           "postData": {
-            "mimeType": "",
-            "params": [],
-            "text": "name=Terminator T1000"
+            "mimeType": "application/x-www-form-urlencoded",
+            "params": [
+              {
+                "name": "name",
+                "value": "Terminator T800"
+              }
+            ],
+            "text": "name=Terminator T800"
           }
         }
       },
@@ -112,8 +117,13 @@
             }
           ],
           "postData": {
-            "mimeType": "",
-            "params": [],
+            "mimeType": "application/x-www-form-urlencoded",
+            "params": [
+              {
+                "name": "confirm",
+                "value": "DELETE"
+              }
+            ],
             "text": "confirm=DELETE"
           }
         }
