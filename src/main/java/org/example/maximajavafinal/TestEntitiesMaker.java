@@ -86,11 +86,12 @@ public class TestEntitiesMaker {
     }
 
     private void makeTestCustomer (CustomerService customerService) {
-        customerService.save(new Customer("Posetitel","custom@mail.com"));
-        customerService.save(new Customer("Posetitel2","custom2@mail.com"));
-        customerService.save(new Customer("Posetitel3","custom3@mail.com"));
-        customerService.save(new Customer("Janny","Call me later +49 221 112 22 11"));
-        customerService.save(new Customer("Janna","Don't call me +49 485 158 32 11"));
+        customerService.save(new Customer("Janelle Voight","janelle@mail.us"));
+        customerService.save(new Customer("Todd Voight","voight1995@mail.us"));
+        customerService.save(new Customer("Hal Vukovich","lapd@mail.us"));
+        customerService.save(new Customer("Ed Traxler","lapd@mail.us"));
+        customerService.save(new Customer("Janny","Call me later +1 310 112 2211"));
+        customerService.save(new Customer("Janna","Don't call me +1 323 158 3215"));
     }
     public void makeTestCustomersByQuantity (int quantity, CustomerService customerService) {
         System.out.println("Creating some customers ...");
