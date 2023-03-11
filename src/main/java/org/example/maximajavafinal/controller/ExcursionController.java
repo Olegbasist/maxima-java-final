@@ -43,6 +43,18 @@ public class ExcursionController {
         service.save(excursion);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @PatchMapping ("/update")
+    public ResponseEntity<Excursion> updateGuide (@RequestBody Excursion updatedExcursion) {
+        Excursion excursionForUpdate = service.findById(updatedExcursion.getId());
+        if (updatedExcursion.getTitle() != null)  {excursionForUpdate.setTitle(updatedExcursion.getTitle());}
+        if (updatedExcursion.getDescription() != null){excursionForUpdate.setDescription(updatedExcursion.getDescription());}
+        if (updatedExcursion.getCapacity() != 0) {excursionForUpdate.setCapacity(updatedExcursion.getCapacity());}
+        if (updatedExcursion.getDate() != null) {excursionForUpdate.setDate(updatedExcursion.getDate());}
+        service.save(excursionForUpdate);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    
     @DeleteMapping("/delete/{id}")
     public void deleteExcursion (@PathVariable Long id) {
         service.deleteById(id);
