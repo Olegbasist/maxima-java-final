@@ -20,11 +20,116 @@ public class ExcursionController {
     @GetMapping
     public String root () {
         return ("Available requests: "
-                + "GET:{all_excursions}, "
-                + "GET:{id}"
-                + "POST: {/new}, Content-Type={application/json}, RequestBody={title=title}}, "
-                + "DELETE: {/delete/{id}}, "
-                + "DELETE: {/delete/all}, Content-Type={application/json}, RequestBody={confirm=DELETE}, ALSO WIPES TICKETS!}, "
+                + "[\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"GET\",\n" +
+                "          \"url\": \"http://localhost:8080/excursion/all_excursions\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"\",\n" +
+                "              \"value\": \"\"\n" +
+                "            }\n" +
+                "          ],\n" +
+
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"GET\",\n" +
+                "          \"url\": \"http://localhost:8080/excursion/{id}\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"\",\n" +
+                "              \"value\": \"\"\n" +
+                "            }\n" +
+                "          ],\n" +
+
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"POST\",\n" +
+                "          \"url\": \"http://localhost:8080/excursion/new\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"application/x-www-form-urlencoded\",\n" +
+                "            \"params\": [\n" +
+                "              {\n" +
+                "                \"name\": \"title\",\n" +
+                "                \"value\": \"{title}\"\n" +
+                "              }\n" +
+                "            ],\n" +
+                "            \"text\": \"title={title}\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"PATCH\",\n" +
+                "          \"url\": \"http://localhost:8080/excursion/update\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"application/x-www-form-urlencoded\",\n" +
+                "            \"params\": [\n" +
+                "              {\n" +
+                "                \"name\": \"id\",\n" +
+                "                \"value\": \"{id}\"\n" +
+                "              },\n" +
+                "              {\n" +
+                "                \"name\": \"title\",\n" +
+                "                \"value\": \"{title}\"\n" +
+                "              }\n" +
+                "            ],\n" +
+                "            \"text\": \"id={id}&title={title}\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"DELETE\",\n" +
+                "          \"url\": \"http://localhost:8080/excursion/delete/{id}\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"\",\n" +
+                "            \"params\": [],\n" +
+                "            \"text\": \"confirm=DELETE\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"DELETE\",\n" +
+                "          \"url\": \"http://localhost:8080/excursion/delete/all\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"\",\n" +
+                "            \"params\": [],\n" +
+                "            \"text\": \"confirm=DELETE\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      }\n" +
+                "    ]"
         );
     }
     @GetMapping("/all_excursions")

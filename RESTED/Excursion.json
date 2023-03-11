@@ -6,8 +6,47 @@
     "entries": [
       {
         "request": {
-          "method": "DELETE",
-          "url": "http://localhost:8080/excursion/delete/all",
+          "method": "GET",
+          "url": "http://localhost:8080/excursion",
+          "headers": [
+            {
+              "name": "",
+              "value": ""
+            }
+          ],
+          "postData": {}
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/excursion/all_excursions",
+          "headers": [
+            {
+              "name": "",
+              "value": ""
+            }
+          ],
+          "postData": {}
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/excursion/2",
+          "headers": [
+            {
+              "name": "",
+              "value": ""
+            }
+          ],
+          "postData": {}
+        }
+      },
+      {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/excursion/new",
           "headers": [
             {
               "name": "Content-Type",
@@ -18,10 +57,70 @@
             "mimeType": "application/x-www-form-urlencoded",
             "params": [
               {
-                "name": "confirm",
-                "value": "DELETE"
+                "name": "title",
+                "value": "New Tour to the future"
               }
             ],
+            "text": "title=New Tour to the future"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "PATCH",
+          "url": "http://localhost:8080/excursion/update",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "application/x-www-form-urlencoded",
+            "params": [
+              {
+                "name": "id",
+                "value": "2"
+              },
+              {
+                "name": "title",
+                "value": "Old fun game"
+              }
+            ],
+            "text": "id=2&title=Old fun game"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:8080/excursion/delete/1",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "",
+            "params": [],
+            "text": "confirm=DELETE"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:8080/excursion/delete/all",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "",
+            "params": [],
             "text": "confirm=DELETE"
           }
         }
