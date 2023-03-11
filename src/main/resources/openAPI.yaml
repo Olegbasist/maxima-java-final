@@ -20,7 +20,7 @@ paths:
     get:
       responses:
         "200":
-          description: All customres list
+          description: All customers list
           content:
             application/json:
               schema:
@@ -41,7 +41,7 @@ paths:
     get:
       responses:
         "200":
-          description: search exact customer by his id
+          description: Search exact customer by his id
           content:
             application/json:
               schema:
@@ -56,5 +56,24 @@ paths:
                   tickets:
                     type: array
 
-
+  /customer/name/{name}:
+    get:
+      responses:
+        "200":
+          description: Search all customers with names containing request string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    contacts:
+                      type: string
+                    tickets:
+                      type: array
   
