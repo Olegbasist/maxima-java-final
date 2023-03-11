@@ -23,8 +23,81 @@ public class BookingController {
     @GetMapping
     public String root () {
         return ("Available requests: "
-                + "POST: {/signup}, Content-Type={application/json}, RequestBody={customer_id=id}, {excursion_id=id}, {quantity=int}}, "
-                + "POST: {/signout}, Content-Type={application/json}, RequestBody={customer_id=id}, {excursion_id=id}, {quantity=int}}, "
+                + "[\n" +
+                "{\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"GET\",\n" +
+                "          \"url\": \"http://localhost:8080/booking\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"\",\n" +
+                "              \"value\": \"\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {}\n" +
+                "        }\n" +
+                "      }\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"POST\",\n" +
+                "          \"url\": \"http://localhost:8080/booking/signup\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"application/x-www-form-urlencoded\",\n" +
+                "            \"params\": [\n" +
+                "              {\n" +
+                "                \"name\": \"excursion_id\",\n" +
+                "                \"value\": \"{id}\"\n" +
+                "              },\n" +
+                "              {\n" +
+                "                \"name\": \"customer_id\",\n" +
+                "                \"value\": \"{id}\"\n" +
+                "              },\n" +
+                "              {\n" +
+                "                \"name\": \"quantity\",\n" +
+                "                \"value\": \"{quantity}\"\n" +
+                "              }\n" +
+                "            ],\n" +
+                "            \"text\": \"excursion_id={id}&customer_id={id}&quantity={quantity}\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"request\": {\n" +
+                "          \"method\": \"POST\",\n" +
+                "          \"url\": \"http://localhost:8080/booking/signout\",\n" +
+                "          \"headers\": [\n" +
+                "            {\n" +
+                "              \"name\": \"Content-Type\",\n" +
+                "              \"value\": \"application/json\"\n" +
+                "            }\n" +
+                "          ],\n" +
+                "          \"postData\": {\n" +
+                "            \"mimeType\": \"application/x-www-form-urlencoded\",\n" +
+                "            \"params\": [\n" +
+                "              {\n" +
+                "                \"name\": \"excursion_id\",\n" +
+                "                \"value\": \"{id}\"\n" +
+                "              },\n" +
+                "              {\n" +
+                "                \"name\": \"customer_id\",\n" +
+                "                \"value\": \"{id}\"\n" +
+                "              },\n" +
+                "              {\n" +
+                "                \"name\": \"quantity\",\n" +
+                "                \"value\": \"{quantity}\"\n" +
+                "              }\n" +
+                "            ],\n" +
+                "            \"text\": \"excursion_id={id}&customer_id={id}&quantity={quantity}\"\n" +
+                "          }\n" +
+                "        }\n" +
+                "      }\n" +
+                "    ]"
         );
     }
 

@@ -101,6 +101,63 @@ paths:
             application/json:
               schema:
                 type: string
+
       responses:
         "200":
           description: Create new customer
+
+  /customer/update:
+    patch:
+      parameters:
+        - in: query
+          name: name
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+      responses:
+        "200":
+          description: Updated customer
+        "404":
+          description: Customer with id={id} not found
+
+  /customer/delete/{id}:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+      responses:
+        "200":
+          description: Deletes one customer by id
+        "404":
+          description: Customer with id={id} not found
+
+  /customer/delete/all:
+    delete:
+      parameters:
+        - in: query
+          name: confirm
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+                example:
+                  value: DELETE
+
+      responses:
+        "200":
+          description: Deletes all customers. All of them!

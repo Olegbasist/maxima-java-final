@@ -91,6 +91,32 @@
       },
       {
         "request": {
+          "method": "PATCH",
+          "url": "http://localhost:8080/customer/update",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "application/x-www-form-urlencoded",
+            "params": [
+              {
+                "name": "name",
+                "value": "Terminated"
+              },
+              {
+                "name": "id",
+                "value": "1"
+              }
+            ],
+            "text": "name=Terminated&id=1"
+          }
+        }
+      },
+      {
+        "request": {
           "method": "DELETE",
           "url": "http://localhost:8080/customer/delete/1",
           "headers": [

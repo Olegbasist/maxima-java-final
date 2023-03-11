@@ -6,6 +6,19 @@
     "entries": [
       {
         "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/booking",
+          "headers": [
+            {
+              "name": "",
+              "value": ""
+            }
+          ],
+          "postData": {}
+        }
+      },
+      {
+        "request": {
           "method": "POST",
           "url": "http://localhost:8080/booking/signup",
           "headers": [
