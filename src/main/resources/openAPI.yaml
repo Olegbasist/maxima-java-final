@@ -162,7 +162,7 @@ paths:
 
       responses:
         "200":
-          description: Deletes all customers. All of them!
+          description: Wipes all customers. All of them!
 
 # Excursion (экскурсия)
 
@@ -237,12 +237,33 @@ paths:
           description: Excursion with id={id} not found
 
 
-  /customer/new:
+  /cexcursion/new:
     post:
       parameters:
         - in: query
-          name: name
-          required: true
+          name: title
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: description
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: date
+          required: false
+          content:
+            application/json:
+              schema:
+                type: object
+        - in: query
+          name: capacity
+          required: false
           content:
             application/json:
               schema:
@@ -250,18 +271,11 @@ paths:
 
       responses:
         "200":
-          description: Create new customer
+          description: Create new excursion
 
-  /customer/update:
+  /excursion/update:
     patch:
       parameters:
-        - in: query
-          name: name
-          required: false
-          content:
-            application/json:
-              schema:
-                type: string
         - in: query
           name: id
           required: true
@@ -269,13 +283,41 @@ paths:
             application/json:
               schema:
                 type: integer
+        - in: query
+          name: title
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: description
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: date
+          required: false
+          content:
+            application/json:
+              schema:
+                type: object
+        - in: query
+          name: capacity
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
       responses:
         "200":
           description: Updated customer
         "404":
           description: Customer with id={id} not found
 
-  /customer/delete/{id}:
+  /excursion/delete/{id}:
     delete:
       parameters:
         - in: path
@@ -289,9 +331,9 @@ paths:
         "200":
           description: Deletes one customer by id
         "404":
-          description: Customer with id={id} not found
+          description: Excursion with id={id} not found
 
-  /customer/delete/all:
+  /excursion/delete/all:
     delete:
       parameters:
         - in: query
@@ -306,4 +348,7 @@ paths:
 
       responses:
         "200":
-          description: Deletes all customers. All of them!
+          description: Wipes all excursions. All of them!
+
+# Guide (гид)
+
