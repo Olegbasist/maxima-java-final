@@ -90,7 +90,7 @@ public class TestEntitiesMaker {
         customerService.save(new Customer("Todd Voight","voight1995@mail.us"));
         customerService.save(new Customer("Hal Vukovich","lapd@mail.us"));
         customerService.save(new Customer("Ed Traxler","lapd@mail.us"));
-        customerService.save(new Customer("Janny","Call me later +1 310 112 2211"));
+        customerService.save(new Customer("Janny","Call me later +1 310 112 221р1"));
         customerService.save(new Customer("Janna","Don't call me +1 323 158 3215"));
     }
     public void makeTestCustomersByQuantity (int quantity, CustomerService customerService) {
