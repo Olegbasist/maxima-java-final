@@ -8,6 +8,16 @@ servers:
 
 # Customer (посетитель)
 paths:
+  /:
+    get:
+      responses:
+        "200":
+          description: All URLs json schema
+          content:
+            application/json:
+              schema:
+                type: string
+                
   /customer:
     get:
       responses:

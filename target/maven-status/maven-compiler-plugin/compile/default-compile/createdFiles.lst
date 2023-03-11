@@ -21,6 +21,7 @@ org\example\maximajavafinal\MaximaJavaFinalApplication.class
 org\example\maximajavafinal\model\Guide.class
 org\example\maximajavafinal\service\ExcursionService.class
 org\example\maximajavafinal\model\Excursion.class
+org\example\maximajavafinal\controller\RootController.class
 org\example\maximajavafinal\exception\CustomerNotFoundException.class
 org\example\maximajavafinal\TestEntitiesMaker.class
 org\example\maximajavafinal\repository\ExhibitionRepository.class

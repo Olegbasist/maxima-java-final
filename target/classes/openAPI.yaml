@@ -5,11 +5,700 @@ info:
   version: 1.0.0
 servers:
   - url: 'http://localhost:8080'
+
+# Customer (посетитель)
 paths:
   /customer:
     get:
       responses:
         "200":
+          description: URL and requests json schema
+          content:
+            application/json:
+              schema:
+                type: string
 
+  /customer/all_customers:
+    get:
+      responses:
+        "200":
+          description: All customers list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    contacts:
+                      type: string
+                    tickets:
+                      type: array
 
+  /customer/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Search exact customer by his id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  name:
+                    type: string
+                  contacts:
+                    type: string
+                  tickets:
+                    type: array
+        "404":
+          description: Customer with id={id} not found
+
+  /customer/name/{name}:
+    get:
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Search all customers with names containing request string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    contacts:
+                      type: string
+                    tickets:
+                      type: array
   
+  /customer/new:
+    post:
+      parameters:
+        - in: query
+          name: name
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+
+      responses:
+        "200":
+          description: Create new customer
+
+  /customer/update:
+    patch:
+      parameters:
+        - in: query
+          name: name
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+      responses:
+        "200":
+          description: Updated customer
+        "404":
+          description: Customer with id={id} not found
+
+  /customer/delete/{id}:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+      responses:
+        "200":
+          description: Deletes one customer by id
+        "404":
+          description: Customer with id={id} not found
+
+  /customer/delete/all:
+    delete:
+      parameters:
+        - in: query
+          name: confirm
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+                example:
+                  value: DELETE
+
+      responses:
+        "200":
+          description: Wipes all customers. All of them!
+
+# Excursion (экскурсия)
+
+  /excursion:
+    get:
+      responses:
+        "200":
+          description: URL and requests json schema
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /excursion/all_excursions:
+    get:
+      responses:
+        "200":
+          description: All excursions list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    date:
+                      type: object
+                    capacity:
+                      type: integer
+                    guide:
+                      type: object
+                    tickets:
+                      type: array
+
+  /excursion/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Search exact excursion by its id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  date:
+                    type: object
+                  capacity:
+                    type: integer
+                  guide:
+                    type: object
+                  tickets:
+                    type: array
+        "404":
+          description: Excursion with id={id} not found
+
+
+  /cexcursion/new:
+    post:
+      parameters:
+        - in: query
+          name: title
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: description
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: date
+          required: false
+          content:
+            application/json:
+              schema:
+                type: object
+        - in: query
+          name: capacity
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+
+      responses:
+        "200":
+          description: Create new excursion
+
+  /excursion/update:
+    patch:
+      parameters:
+        - in: query
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+        - in: query
+          name: title
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: description
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: date
+          required: false
+          content:
+            application/json:
+              schema:
+                type: object
+        - in: query
+          name: capacity
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+      responses:
+        "200":
+          description: Updated customer
+        "404":
+          description: Customer with id={id} not found
+
+  /excursion/delete/{id}:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+      responses:
+        "200":
+          description: Deletes one customer by id
+        "404":
+          description: Excursion with id={id} not found
+
+  /excursion/delete/all:
+    delete:
+      parameters:
+        - in: query
+          name: confirm
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+                example:
+                  value: DELETE
+
+      responses:
+        "200":
+          description: Wipes all excursions. All of them!
+
+# Guide (гид)
+
+  /guide:
+    get:
+      responses:
+        "200":
+          description: URL and requests json schema
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /guide/all_guids:
+    get:
+      responses:
+        "200":
+          description: All guides list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    excursions:
+                      type: array
+                    available:
+                      type: boolean
+
+  /guide/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Search exact customer by his id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  name:
+                    type: string
+                  excursions:
+                    type: array
+                  available:
+                    type: boolean
+        "404":
+          description: Guide with id={id} not found
+
+  /guide/name/{name}:
+    get:
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Search all guides with names containing request string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    excursions:
+                      type: array
+                    available:
+                      type: boolean
+
+  /guide/new:
+    post:
+      parameters:
+        - in: query
+          name: name
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+
+      responses:
+        "200":
+          description: Create new guide
+
+  /guide/update:
+    patch:
+      parameters:
+        - in: query
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+        - in: query
+          name: name
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: available
+          required: false
+          content:
+            application/json:
+              schema:
+                type: boolean
+
+      responses:
+        "200":
+          description: Updated customer
+        "404":
+          description: Guide with id={id} not found
+
+  /guide/service/assign:
+    post:
+      parameters:
+        - in: query
+          name: guide_id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+        - in: query
+          name: excursion_id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+
+      responses:
+        "200":
+          description: Assign guide for excursion
+
+  /guide/service/relive:
+    post:
+      parameters:
+        - in: query
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+
+      responses:
+        "200":
+          description: Relive guide from excursion
+
+
+  /guide/delete/{id}:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+      responses:
+        "200":
+          description: Deletes one guide by id. This requires guide is not assigned to any excursion, otherwise returns error.
+        "404":
+          description: Guide with id={id} not found
+        "500":
+          description: Guide is assigned to some excursion and must be relived first.
+
+  /guide/delete/all:
+    delete:
+      parameters:
+        - in: query
+          name: confirm
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+                example:
+                  value: DELETE
+
+      responses:
+        "200":
+          description: Wipes all guides. This requires wipe all excursion first, otherwise returns error.
+        "400":
+          description: Bad request. This happens because some guides assigned to some excursion. Wipe all excursion first.
+
+# Tickets (билеты, они же записи-резервы)
+
+  /ticket:
+    get:
+      responses:
+        "200":
+          description: URL and requests json schema
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /ticket/all_tickets:
+    get:
+      responses:
+        "200":
+          description: All tickets list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    type:
+                      type: string
+                    price:
+                      type: string
+                    excursion:
+                      type: object
+                    customer:
+                      type: object
+                    creationDate:
+                      type: object
+                    available:
+                      type: boolean
+
+  /ticket/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Search exact ticket by his id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  type:
+                    type: string
+                  price:
+                    type: string
+                  excursion:
+                    type: object
+                  customer:
+                    type: object
+                  creationDate:
+                    type: object
+                  available:
+                    type: boolean
+        "404":
+          description: Ticket with id={id} not found
+
+
+  /ticket/new:
+    post:
+      parameters:
+        - in: query
+          name: excursion
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+        - in: query
+          name: customer
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+        - in: query
+          name: type
+          required: false
+          content:
+            application/json:
+              schema:
+                type: string
+        - in: query
+          name: price
+          required: false
+          content:
+            application/json:
+              schema:
+                type: integer
+
+      responses:
+        "200":
+          description: Create new ticket
+
+
+  /ticket/delete/{id}:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          content:
+            application/json:
+              schema:
+                type: integer
+      responses:
+        "200":
+          description: Deletes one ticket by id
+        "404":
+          description: Ticket with id={id} not found
+
+  /ticket/delete/all:
+    delete:
+      parameters:
+        - in: query
+          name: confirm
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+                example:
+                  value: DELETE
+
+      responses:
+        "200":
+          description: Wipes all tickets. All of them!
+
+#End of file
