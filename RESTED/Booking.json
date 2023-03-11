@@ -1,0 +1,69 @@
+{
+  "log": {
+    "version": "1.2",
+    "creator": "RESTED REST Client",
+    "Comment": "An exported collection from RESTED",
+    "entries": [
+      {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/booking/signup",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "application/x-www-form-urlencoded",
+            "params": [
+              {
+                "name": "excursion_id",
+                "value": "1"
+              },
+              {
+                "name": "customer_id",
+                "value": "4"
+              },
+              {
+                "name": "quantity",
+                "value": "12"
+              }
+            ],
+            "text": "excursion_id=1&customer_id=4&quantity=12"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/booking/signout",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "application/x-www-form-urlencoded",
+            "params": [
+              {
+                "name": "excursion_id",
+                "value": "1"
+              },
+              {
+                "name": "customer_id",
+                "value": "4"
+              },
+              {
+                "name": "quantity",
+                "value": "1"
+              }
+            ],
+            "text": "excursion_id=1&customer_id=4&quantity=1"
+          }
+        }
+      }
+    ]
+  }
+}
