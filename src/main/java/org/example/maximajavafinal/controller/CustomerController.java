@@ -142,8 +142,8 @@ public class CustomerController {
     }
 
     @GetMapping ("/all_customers")
-    public List<Customer> findAllCustomers () {
-        return service.findAll();
+    public ResponseEntity <List<Customer>> findAllCustomers () {
+        return ResponseEntity.ok(service.findAll());
     }
 
 
@@ -152,9 +152,8 @@ public class CustomerController {
         return ResponseEntity.ok(service.findById(id));
     }
     @GetMapping("/name/{name}")
-    public List<Customer> getCustomerByName (@PathVariable String name) {
-
-        return service.findByNameContaining(name);
+    public ResponseEntity <List<Customer>> getCustomerByName (@PathVariable String name) {
+        return ResponseEntity.ok(service.findByNameContaining(name));
     }
 
     @PostMapping("/new")
