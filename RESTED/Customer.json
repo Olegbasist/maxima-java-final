@@ -6,8 +6,8 @@
     "entries": [
       {
         "request": {
-          "method": "DELETE",
-          "url": "http://localhost:8080/customer/delete/all",
+          "method": "GET",
+          "url": "http://localhost:8080/customer",
           "headers": [
             {
               "name": "Content-Type",
@@ -15,14 +15,43 @@
             }
           ],
           "postData": {
-            "mimeType": "application/x-www-form-urlencoded",
-            "params": [
-              {
-                "name": "confirm",
-                "value": "DELETE"
-              }
-            ],
-            "text": "confirm=DELETE"
+            "mimeType": "",
+            "params": [],
+            "text": "name=Terminator T800"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/customer/all_customers",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "",
+            "params": [],
+            "text": "name=Terminator T800"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/customer/1",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "",
+            "params": [],
+            "text": "name=Terminator T800"
           }
         }
       },
@@ -32,13 +61,8 @@
           "url": "http://localhost:8080/customer/name/jan",
           "headers": [],
           "postData": {
-            "mimeType": "application/x-www-form-urlencoded",
-            "params": [
-              {
-                "name": "name",
-                "value": "jan"
-              }
-            ],
+            "mimeType": "",
+            "params": [],
             "text": "name=jan"
           }
         }
@@ -54,21 +78,16 @@
             }
           ],
           "postData": {
-            "mimeType": "application/x-www-form-urlencoded",
-            "params": [
-              {
-                "name": "name",
-                "value": "Terminator T1000"
-              }
-            ],
+            "mimeType": "",
+            "params": [],
             "text": "name=Terminator T1000"
           }
         }
       },
       {
         "request": {
-          "method": "GET",
-          "url": "http://localhost:8080/customer",
+          "method": "DELETE",
+          "url": "http://localhost:8080/customer/delete/1",
           "headers": [
             {
               "name": "Content-Type",
@@ -76,14 +95,26 @@
             }
           ],
           "postData": {
-            "mimeType": "application/x-www-form-urlencoded",
-            "params": [
-              {
-                "name": "name",
-                "value": "Terminator T800"
-              }
-            ],
-            "text": "name=Terminator T800"
+            "mimeType": "",
+            "params": [],
+            "text": "confirm=DELETE"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:8080/customer/delete/all",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "postData": {
+            "mimeType": "",
+            "params": [],
+            "text": "confirm=DELETE"
           }
         }
       }
