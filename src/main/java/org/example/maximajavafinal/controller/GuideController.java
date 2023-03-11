@@ -41,8 +41,8 @@ public class GuideController {
     }
 
     @GetMapping("/name/{name}")
-    public List<Guide> getGuideByName (@PathVariable String name) {
-        return service.findByNameContaining(name);
+    public ResponseEntity<List<Guide>> getGuideByName (@PathVariable String name) {
+        return ResponseEntity.ok(service.findByNameContaining(name));
     }
 
 
@@ -51,6 +51,15 @@ public class GuideController {
         service.save(guide);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @PatchMapping("/update")
+    public ResponseEntity<Guide> updateGuide (@RequestBody Guide updatedGuide) {
+        Guide guideForUpdate = service.findByID(updatedGuide.getId());
+        if (updatedGuide.getName() != null) {guideForUpdate.setName(updatedGuide.getName());}
+        service.save(guideForUpdate);
+        return new  ResponseEntity<>(HttpStatus.OK);
+    }
+
     @DeleteMapping("/delete/{id}")
     public void deleteGuide (@PathVariable Long id) {
         service.deleteById(id);}
