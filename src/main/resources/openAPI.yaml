@@ -39,6 +39,12 @@ paths:
 
   /customer/{id}:
     get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
       responses:
         "200":
           description: Search exact customer by his id
@@ -55,9 +61,17 @@ paths:
                     type: string
                   tickets:
                     type: array
+        "404":
+          description: Customer with id={id} not found
 
   /customer/name/{name}:
     get:
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: Search all customers with names containing request string
@@ -77,3 +91,16 @@ paths:
                     tickets:
                       type: array
   
+  /customer/new:
+    post:
+      parameters:
+        - in: query
+          name: name
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+      responses:
+        "200":
+          description: Create new customer
