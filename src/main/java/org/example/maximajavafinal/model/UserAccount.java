@@ -1,5 +1,6 @@
 package org.example.maximajavafinal.model;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,6 +21,7 @@ public class UserAccount implements UserDetails {
 
     private String password;
 
+    @ElementCollection
     private List<String> authorities;
 
     private boolean enabled;
@@ -67,5 +69,16 @@ public class UserAccount implements UserDetails {
     @Override
     public boolean isEnabled() {
         return enabled;
+    }
+
+    @Override
+    public String toString() {
+        return "UserAccount{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", authorities=" + authorities +
+                ", enabled=" + enabled +
+                '}';
     }
 }
