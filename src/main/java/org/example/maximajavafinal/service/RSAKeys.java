@@ -17,4 +17,13 @@ public class RSAKeys {
 
     @Value("${rsa.publickey.path}")
     private String publicKeyPath;
+
+    public RSAPrivateKey getPrivateKey() {
+        return privateKey;
+    }
+
+    public RSAPublicKey getPublicKey() {
+        return publicKey;
+    }
+    
 }
