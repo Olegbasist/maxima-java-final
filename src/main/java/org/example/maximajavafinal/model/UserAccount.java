@@ -14,9 +14,7 @@ import java.util.List;
 @Entity
 public class UserAccount implements UserDetails {
 
-    @Id @GeneratedValue
-    private long id;
-
+    @Id
     private String username;
 
     private String password;
@@ -74,7 +72,6 @@ public class UserAccount implements UserDetails {
     @Override
     public String toString() {
         return "UserAccount{" +
-                "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", authorities=" + authorities +
