@@ -23,7 +23,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/hallo", "/excursion/all_excursions").anonymous())
-                //.authorizeHttpRequests(auth -> auth.anyRequest())
+                .authorizeHttpRequests(auth -> auth.anyRequest().hasAnyRole("user_role", "admin_role"))
                 .httpBasic(Customizer.withDefaults())
                 .userDetailsService(jpaUserDetailsService)
                 .build();
