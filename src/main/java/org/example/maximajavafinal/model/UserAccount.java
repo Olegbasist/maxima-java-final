@@ -1,9 +1,6 @@
 package org.example.maximajavafinal.model;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,7 +16,7 @@ public class UserAccount implements UserDetails {
 
     private String password;
 
-    @ElementCollection
+    //@ElementCollection(fetch = FetchType.EAGER)
     private List<String> authorities;
 
     private boolean enabled;

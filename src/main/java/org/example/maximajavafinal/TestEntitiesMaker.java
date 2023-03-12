@@ -4,11 +4,14 @@ import jakarta.annotation.PostConstruct;
 import org.example.maximajavafinal.model.Customer;
 import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Guide;
+import org.example.maximajavafinal.model.UserAccount;
+import org.example.maximajavafinal.repository.UserAccountRepository;
 import org.example.maximajavafinal.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 
@@ -28,7 +31,7 @@ public class TestEntitiesMaker {
     CustomerService customerService;
 
     @Autowired
-    //JpaUserDetailsService userDetailsService;
+    UserAccountRepository userAccountRepository;
 
     TestEntitiesMaker() {
     }
@@ -38,7 +41,7 @@ public class TestEntitiesMaker {
         makeTestGuides(guideService);
         makeTestExcursions(5);
         makeTestCustomer(customerService);
-        //makeTestAccounts();
+        makeTestAccounts();
     }
     private void makeTestGuides (GuideService guideService) {
         System.out.println("");
@@ -103,6 +106,21 @@ public class TestEntitiesMaker {
     }
 
     private void makeTestAccounts () {
-
+        UserAccount admin = new UserAccount(
+                "admin",
+                "admin",
+                List.of("ROLE_USER", "ROLE_ADMIN"),
+                true
+        );
+        UserAccount user = new UserAccount(
+                "user",
+                "user",
+                List.of("ROLE_USER"),
+                true
+        );
+        userAccountRepository.save(admin);
+        userAccountRepository.save(user);
+        System.out.println("Available users: ");
+        userAccountRepository.findAll().forEach(System.out::println);
     }
 }

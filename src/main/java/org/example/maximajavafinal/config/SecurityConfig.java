@@ -1,5 +1,9 @@
 package org.example.maximajavafinal.config;
 
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
+import com.nimbusds.jose.jwk.source.JWKSource;
+import com.nimbusds.jose.proc.SecurityContext;
 import org.example.maximajavafinal.service.JpaUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +12,13 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import java.security.Principal;
 
 @Configuration
 @EnableWebSecurity
@@ -23,9 +33,14 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/hallo", "/excursion/all_excursions").anonymous())
-                .authorizeHttpRequests(auth -> auth.anyRequest().hasAnyRole("user_role", "admin_role"))
+                .authorizeHttpRequests(auth -> auth.anyRequest().hasAnyRole("ROLE_USER", "ROLE_ADMIN"))
                 .httpBasic(Customizer.withDefaults())
                 .userDetailsService(jpaUserDetailsService)
                 .build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder () {
+        return new BCryptPasswordEncoder();
     }
 }
