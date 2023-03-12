@@ -1,6 +1,5 @@
 package org.example.maximajavafinal.service;
 
-import org.example.maximajavafinal.model.UserAccount;
 import org.example.maximajavafinal.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +15,8 @@ public class JpaUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return repository.findById(username).orElseThrow(()-> new UsernameNotFoundException("No such user!"));
+        return repository.findById(username).orElseThrow(()-> new UsernameNotFoundException("No such user!" + username));
+        // Здесь можно давать учётку гостевого пользователя (.orElse())
         //return repository.findUserByUsername(username);
     }
 }

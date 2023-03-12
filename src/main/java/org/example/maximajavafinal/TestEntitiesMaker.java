@@ -4,10 +4,7 @@ import jakarta.annotation.PostConstruct;
 import org.example.maximajavafinal.model.Customer;
 import org.example.maximajavafinal.model.Excursion;
 import org.example.maximajavafinal.model.Guide;
-import org.example.maximajavafinal.service.CustomerService;
-import org.example.maximajavafinal.service.ExcursionService;
-import org.example.maximajavafinal.service.GuideService;
-import org.example.maximajavafinal.service.TicketService;
+import org.example.maximajavafinal.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +27,9 @@ public class TestEntitiesMaker {
     @Autowired
     CustomerService customerService;
 
+    @Autowired
+    //JpaUserDetailsService userDetailsService;
+
     TestEntitiesMaker() {
     }
 
@@ -38,6 +38,7 @@ public class TestEntitiesMaker {
         makeTestGuides(guideService);
         makeTestExcursions(5);
         makeTestCustomer(customerService);
+        //makeTestAccounts();
     }
     private void makeTestGuides (GuideService guideService) {
         System.out.println("");
@@ -99,5 +100,9 @@ public class TestEntitiesMaker {
             customerService.save(new Customer("Name","Phone: +486874955574"));
             quantity--;
         }
+    }
+
+    private void makeTestAccounts () {
+
     }
 }

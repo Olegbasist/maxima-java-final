@@ -7,6 +7,7 @@ C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\m
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\advice\CustomerNotFoundAdvice.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\TicketService.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\ExcursionService.java
+C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\RootController.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\AssignController.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\CustomerRepository.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\exception\CustomerNotFoundException.java
@@ -23,6 +24,7 @@ C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\m
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\GuideRepository.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\exception\ExcursionNotFoundException.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\GuideService.java
+C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\UserAccount.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\TicketRepository.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\controller\GuideController.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\TestEntitiesMaker.java
@@ -32,4 +34,6 @@ C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\m
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\advice\ExcursionNotFoundAdvice.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\advice\GuideNotFoundAdvice.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\advice\TicketNotFoundAdvice.java
+C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\repository\UserAccountRepository.java
+C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\service\JpaUserDetailsService.java
 C:\Users\Олег\Documents\GitHub\maxima-java-final\src\main\java\org\example\maximajavafinal\model\Guide.java
