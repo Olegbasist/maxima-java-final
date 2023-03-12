@@ -8,6 +8,7 @@ org\example\maximajavafinal\model\UserAccount.class
 org\example\maximajavafinal\controller\AssignController.class
 org\example\maximajavafinal\advice\ExcursionNotFoundAdvice.class
 org\example\maximajavafinal\MaximaJavaFinalApplication.class
+org\example\maximajavafinal\controller\AuthController.class
 org\example\maximajavafinal\model\Excursion.class
 org\example\maximajavafinal\controller\RootController.class
 org\example\maximajavafinal\exception\CustomerNotFoundException.class
