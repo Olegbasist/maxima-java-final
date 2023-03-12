@@ -24,6 +24,7 @@ org\example\maximajavafinal\repository\GuideRepository.class
 org\example\maximajavafinal\controller\TicketController.class
 org\example\maximajavafinal\service\CustomerService.class
 org\example\maximajavafinal\advice\CustomerNotFoundAdvice.class
+org\example\maximajavafinal\config\SecurityConfig.class
 org\example\maximajavafinal\controller\GuideController.class
 org\example\maximajavafinal\model\Exhibition.class
 org\example\maximajavafinal\advice\GuideNotFoundAdvice.class

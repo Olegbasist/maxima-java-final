@@ -10,6 +10,6 @@ public class AuthController {
 
     @GetMapping ("/hallo")
     public String auth (Principal principal) {
-        return ("Hallo " + principal.getName() +"!");
+        return ("Hallo "  +"!");
     }
 }
