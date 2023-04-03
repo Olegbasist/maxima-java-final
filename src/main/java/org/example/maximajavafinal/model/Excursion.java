@@ -2,12 +2,15 @@ package org.example.maximajavafinal.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLDelete;
 
 import java.util.Date;
 import java.util.List;
 
 
 @Entity
+//@Table(name = "excursion")
+@SQLDelete(sql = "UPDATE excursion SET removing_date = NOW(), available = false WHERE id=?")
 public class Excursion {
 
     @Id
@@ -21,6 +24,8 @@ public class Excursion {
     private Date date;
 
     private int capacity;
+
+    private Date removingDate;
 
 
     @ManyToOne (cascade = CascadeType.MERGE)
@@ -92,6 +97,14 @@ public class Excursion {
         this.available = available;
     }
 
+    public Date getRemovingDate() {
+        return removingDate;
+    }
+
+    public void setRemovingDate(Date removingDate) {
+        this.removingDate = removingDate;
+    }
+
     public Excursion() {
     }
 
@@ -111,6 +124,7 @@ public class Excursion {
                 ", guide=" + guide +
                 ", capacity=" + capacity +
                 ", booked tickets=" + tickets.size() +
+                ", removingDate" + removingDate +
                 '}';
     }
 }

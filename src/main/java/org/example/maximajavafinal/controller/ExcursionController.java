@@ -133,6 +133,7 @@ public class ExcursionController {
         );
     }
     @GetMapping("/all_excursions")
+
     public List<Excursion> findAll(){
         return service.findAll();
     }

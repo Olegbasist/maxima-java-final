@@ -16,9 +16,11 @@ public class ExcursionService {
 
     public void save (Excursion excursion) {repository.save(excursion);}
 
+
     @Transactional(readOnly = true)
     public List<Excursion> findAll () {
-        return repository.findAll();
+        return repository.findAllByRemovingDateIsNull();
+        //return repository.findAll();
     }
 
     @Transactional (readOnly = true)
