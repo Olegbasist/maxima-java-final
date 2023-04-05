@@ -2,10 +2,14 @@ package org.example.maximajavafinal.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.util.List;
 
 @Entity
+@SQLDelete(sql = "UPDATE guide SET available = false WHERE id=?")
+@Where(clause = "available=true")
 public class Guide {
 
     @Id @GeneratedValue
